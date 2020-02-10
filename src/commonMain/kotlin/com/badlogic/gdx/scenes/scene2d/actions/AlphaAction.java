@@ -16,8 +16,8 @@
 
 package com.badlogic.gdx.scenes.scene2d.actions;
 
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.scenes.scene2d.Actor;
+
+
 
 /**
  * Sets the alpha for an actor's color (or a specified color), from the current alpha to the new alpha. Note this action

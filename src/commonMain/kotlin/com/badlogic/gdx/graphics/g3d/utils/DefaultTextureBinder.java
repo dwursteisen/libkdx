@@ -16,13 +16,13 @@
 
 package com.badlogic.gdx.graphics.g3d.utils;
 
-import java.nio.IntBuffer;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.GLTexture;
-import com.badlogic.gdx.utils.BufferUtils;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+
+
+
+
+
+
 
 /**
  * Class that you assign a range of texture units and binds textures for you within that range. It does some basic usage tracking

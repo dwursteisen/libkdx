@@ -16,9 +16,9 @@
 
 package com.badlogic.gdx.utils;
 
-import java.util.Arrays;
 
-import com.badlogic.gdx.math.MathUtils;
+
+
 
 /**
  * A resizable, ordered or unordered float array. Avoids the boxing that occurs with ArrayList<Float>. If unordered, this class

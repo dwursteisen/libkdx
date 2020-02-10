@@ -16,21 +16,21 @@
 
 package com.badlogic.gdx.maps.tiled;
 
-import com.badlogic.gdx.assets.AssetDescriptor;
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.assets.loaders.FileHandleResolver;
-import com.badlogic.gdx.assets.loaders.TextureLoader;
-import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.maps.ImageResolver;
-import com.badlogic.gdx.maps.ImageResolver.AssetManagerImageResolver;
-import com.badlogic.gdx.maps.ImageResolver.DirectImageResolver;
-import com.badlogic.gdx.maps.MapProperties;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.ObjectMap;
-import com.badlogic.gdx.utils.XmlReader.Element;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * @brief synchronous loader for TMX maps created with the Tiled tool

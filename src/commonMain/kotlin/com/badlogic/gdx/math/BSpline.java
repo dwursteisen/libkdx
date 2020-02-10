@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.math;
 
-import com.badlogic.gdx.utils.Array;
+
 
 /**
  * @author Xoppa

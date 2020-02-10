@@ -16,13 +16,13 @@
 
 package com.badlogic.gdx.graphics.g3d.particles.influencers;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.g3d.particles.ParallelArray.FloatChannel;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleChannels;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Json;
-import com.badlogic.gdx.utils.JsonValue;
+
+
+
+
+
+
+
 
 /**
  * It's an {@link Influencer} which assigns a region of a {@link Texture} to the particles.

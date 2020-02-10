@@ -16,12 +16,12 @@
 
 package com.badlogic.gdx.graphics.g3d.particles.influencers;
 
-import com.badlogic.gdx.graphics.g3d.particles.ParallelArray.ChannelDescriptor;
-import com.badlogic.gdx.graphics.g3d.particles.ParallelArray.FloatChannel;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleChannels;
-import com.badlogic.gdx.graphics.g3d.particles.values.ScaledNumericValue;
-import com.badlogic.gdx.utils.Json;
-import com.badlogic.gdx.utils.JsonValue;
+
+
+
+
+
+
 
 /**
  * It's an {@link Influencer} which controls a generic channel of the particles. It handles the interpolation through time using

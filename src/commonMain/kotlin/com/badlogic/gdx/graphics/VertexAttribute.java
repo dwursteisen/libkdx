@@ -16,12 +16,12 @@
 
 package com.badlogic.gdx.graphics;
 
-import java.nio.FloatBuffer;
 
 
-import com.badlogic.gdx.graphics.VertexAttributes.Usage;
-import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import com.badlogic.gdx.graphics.glutils.VertexArray;
+
+
+
+
 
 /**
  * A single vertex attribute defined by its {@link Usage}, its number of components and its shader alias. The Usage is used

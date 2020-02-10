@@ -16,8 +16,8 @@
 
 package com.badlogic.gdx.maps.tiled;
 
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.maps.MapLayer;
+
+
 
 public class TiledMapImageLayer extends MapLayer {
 

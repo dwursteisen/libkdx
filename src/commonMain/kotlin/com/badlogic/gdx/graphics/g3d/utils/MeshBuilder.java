@@ -16,36 +16,36 @@
 
 package com.badlogic.gdx.graphics.g3d.utils;
 
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Mesh;
-import com.badlogic.gdx.graphics.VertexAttribute;
-import com.badlogic.gdx.graphics.VertexAttributes;
-import com.badlogic.gdx.graphics.VertexAttributes.Usage;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.g3d.model.MeshPart;
-import com.badlogic.gdx.graphics.g3d.utils.shapebuilders.ArrowShapeBuilder;
-import com.badlogic.gdx.graphics.g3d.utils.shapebuilders.BoxShapeBuilder;
-import com.badlogic.gdx.graphics.g3d.utils.shapebuilders.CapsuleShapeBuilder;
-import com.badlogic.gdx.graphics.g3d.utils.shapebuilders.ConeShapeBuilder;
-import com.badlogic.gdx.graphics.g3d.utils.shapebuilders.CylinderShapeBuilder;
-import com.badlogic.gdx.graphics.g3d.utils.shapebuilders.EllipseShapeBuilder;
-import com.badlogic.gdx.graphics.g3d.utils.shapebuilders.PatchShapeBuilder;
-import com.badlogic.gdx.graphics.g3d.utils.shapebuilders.SphereShapeBuilder;
-import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Matrix3;
-import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.math.collision.BoundingBox;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.FloatArray;
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.badlogic.gdx.utils.IntIntMap;
-import com.badlogic.gdx.utils.NumberUtils;
-import com.badlogic.gdx.utils.Pool;
-import com.badlogic.gdx.utils.ShortArray;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Class to construct a mesh, optionally splitting it into one or more mesh parts. Before you can call any other method you must

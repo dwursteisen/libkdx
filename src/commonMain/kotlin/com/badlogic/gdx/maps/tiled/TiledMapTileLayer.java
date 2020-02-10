@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.maps.tiled;
 
-import com.badlogic.gdx.maps.MapLayer;
+
 
 /**
  * @brief Layer for a TiledMap

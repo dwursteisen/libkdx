@@ -16,11 +16,11 @@
 
 package com.badlogic.gdx.maps;
 
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.utils.ObjectMap;
+
+
+
+
+
 
 /**
  * Resolves an image by a string, wrapper around a Map or AssetManager to load maps either directly or via AssetManager.

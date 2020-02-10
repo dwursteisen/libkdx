@@ -22,10 +22,10 @@
 
 package com.badlogic.gdx.graphics.g2d;
 
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
-import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import com.badlogic.gdx.utils.Array;
+
+
+
+
 
 /**
  * Renders bitmap fonts using distance field textures, see the <a

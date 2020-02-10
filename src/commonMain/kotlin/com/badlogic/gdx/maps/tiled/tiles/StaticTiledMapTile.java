@@ -16,10 +16,10 @@
 
 package com.badlogic.gdx.maps.tiled.tiles;
 
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.maps.MapObjects;
-import com.badlogic.gdx.maps.MapProperties;
-import com.badlogic.gdx.maps.tiled.TiledMapTile;
+
+
+
+
 
 /**
  * @brief Represents a non changing {@link TiledMapTile} (can be cached)

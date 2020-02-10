@@ -16,14 +16,14 @@
 
 package com.badlogic.gdx.graphics.g3d.particles.renderers;
 
-import com.badlogic.gdx.graphics.g3d.particles.ParticleChannels;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleChannels.ColorInitializer;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleChannels.Rotation2dInitializer;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleChannels.ScaleInitializer;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleChannels.TextureRegionInitializer;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleControllerComponent;
-import com.badlogic.gdx.graphics.g3d.particles.batches.BillboardParticleBatch;
-import com.badlogic.gdx.graphics.g3d.particles.batches.ParticleBatch;
+
+
+
+
+
+
+
+
 
 /**
  * A {@link ParticleControllerRenderer} which will render particles as billboards to a {@link BillboardParticleBatch} .

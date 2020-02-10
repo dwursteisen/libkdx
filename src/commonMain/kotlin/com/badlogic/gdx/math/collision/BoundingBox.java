@@ -16,11 +16,11 @@
 
 package com.badlogic.gdx.math.collision;
 
-import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Vector3;
 
-import java.io.Serializable;
-import java.util.List;
+
+
+
+
 
 /**
  * Encapsulates an axis aligned bounding box represented by a minimum and a maximum Vector. Additionally you can query for the

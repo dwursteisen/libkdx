@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.graphics.g3d;
 
-import com.badlogic.gdx.utils.Array;
+
 
 /**
  * Extend this class to implement a material attribute. Register the attribute type by statically calling the

@@ -16,11 +16,11 @@
 
 package com.badlogic.gdx.graphics.g3d.particles;
 
-import java.util.Arrays;
 
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.badlogic.gdx.utils.reflect.ArrayReflection;
+
+
+
+
 
 /**
  * This class represents an group of elements like an array, but the properties of the elements are stored as separate arrays.

@@ -16,23 +16,23 @@
 
 package com.badlogic.gdx.graphics.g2d;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetDescriptor;
-import com.badlogic.gdx.assets.AssetLoaderParameters;
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.assets.loaders.FileHandleResolver;
-import com.badlogic.gdx.assets.loaders.SynchronousAssetLoader;
-import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.PolygonRegionLoader.PolygonRegionParameters;
-import com.badlogic.gdx.math.EarClippingTriangulator;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.badlogic.gdx.utils.StreamUtils;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * loads {@link PolygonRegion PolygonRegions} using a {@link com.badlogic.gdx.graphics.g2d.PolygonRegionLoader}

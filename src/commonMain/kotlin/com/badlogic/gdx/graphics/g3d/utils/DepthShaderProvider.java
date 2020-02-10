@@ -16,11 +16,11 @@
 
 package com.badlogic.gdx.graphics.g3d.utils;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.g3d.Renderable;
-import com.badlogic.gdx.graphics.g3d.Shader;
-import com.badlogic.gdx.graphics.g3d.shaders.DepthShader;
+
+
+
+
+
 
 public class DepthShaderProvider extends BaseShaderProvider {
     public final DepthShader.Config config;

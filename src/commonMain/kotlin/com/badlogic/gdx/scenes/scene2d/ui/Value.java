@@ -16,8 +16,8 @@
 
 package com.badlogic.gdx.scenes.scene2d.ui;
 
-import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.utils.Layout;
+
+
 
 /**
  * Value placeholder, allowing the value to be computed on request. Values are provided an actor for context which reduces the

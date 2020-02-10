@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.math;
 
-import java.util.Random;
+
 
 /**
  * This class implements the xorshift128+ algorithm that is a very fast, top-quality 64-bit pseudo-random number generator. The

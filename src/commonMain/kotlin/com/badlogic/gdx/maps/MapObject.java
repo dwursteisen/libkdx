@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.maps;
 
-import com.badlogic.gdx.graphics.Color;
+
 
 /**
  * Generic Map entity with basic attributes like name, opacity, color

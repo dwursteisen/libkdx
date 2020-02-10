@@ -16,17 +16,17 @@
 
 package com.badlogic.gdx.graphics;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Pixmap.Blending;
-import com.badlogic.gdx.graphics.Texture.TextureFilter;
-import com.badlogic.gdx.graphics.Texture.TextureWrap;
-import com.badlogic.gdx.graphics.TextureData.TextureDataType;
-import com.badlogic.gdx.graphics.glutils.MipMapGenerator;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.utils.BufferUtils;
-import com.badlogic.gdx.utils.Disposable;
 
-import java.nio.FloatBuffer;
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Class representing an OpenGL texture by its target and handle. Keeps track of its state like the TextureFilter and TextureWrap.

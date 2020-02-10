@@ -16,9 +16,9 @@
 
 package com.badlogic.gdx.utils;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.FloatCounter;
-import com.badlogic.gdx.math.WindowedMean;
+
+
+
 
 /**
  * Class to keep track of the time and load (percentage of total time) a specific task takes. Call {@link #start()} just before

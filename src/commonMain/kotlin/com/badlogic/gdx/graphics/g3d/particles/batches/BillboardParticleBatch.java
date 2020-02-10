@@ -16,33 +16,33 @@
 
 package com.badlogic.gdx.graphics.g3d.particles.batches;
 
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Mesh;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.VertexAttribute;
-import com.badlogic.gdx.graphics.VertexAttributes;
-import com.badlogic.gdx.graphics.VertexAttributes.Usage;
-import com.badlogic.gdx.graphics.g3d.Material;
-import com.badlogic.gdx.graphics.g3d.Renderable;
-import com.badlogic.gdx.graphics.g3d.Shader;
-import com.badlogic.gdx.graphics.g3d.attributes.BlendingAttribute;
-import com.badlogic.gdx.graphics.g3d.attributes.DepthTestAttribute;
-import com.badlogic.gdx.graphics.g3d.attributes.TextureAttribute;
-import com.badlogic.gdx.graphics.g3d.particles.ParallelArray.FloatChannel;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleChannels;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleShader;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleShader.AlignMode;
-import com.badlogic.gdx.graphics.g3d.particles.ResourceData;
-import com.badlogic.gdx.graphics.g3d.particles.ResourceData.SaveData;
-import com.badlogic.gdx.graphics.g3d.particles.renderers.BillboardControllerRenderData;
-import com.badlogic.gdx.graphics.g3d.shaders.DefaultShader;
-import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Matrix3;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Pool;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * This class is used to render billboard particles.

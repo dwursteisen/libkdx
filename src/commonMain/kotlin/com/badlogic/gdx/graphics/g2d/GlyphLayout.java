@@ -16,16 +16,16 @@
 
 package com.badlogic.gdx.graphics.g2d;
 
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Colors;
-import com.badlogic.gdx.graphics.g2d.BitmapFont.BitmapFontData;
-import com.badlogic.gdx.graphics.g2d.BitmapFont.Glyph;
-import com.badlogic.gdx.utils.Align;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.FloatArray;
-import com.badlogic.gdx.utils.Pool;
-import com.badlogic.gdx.utils.Pool.Poolable;
-import com.badlogic.gdx.utils.Pools;
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Stores {@link GlyphRun runs} of glyphs for a piece of text. The text may contain newlines and color markup tags.

@@ -16,9 +16,9 @@
 
 package com.badlogic.gdx.scenes.scene2d.ui;
 
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
-import com.badlogic.gdx.utils.Scaling;
+
+
+
 
 /**
  * A button with a child {@link Image} to display an image. This is useful when the button must be larger than the image and the

@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.graphics.g3d;
 
-import com.badlogic.gdx.utils.Array;
+
 
 public class Material extends Attributes {
     private static int counter = 0;

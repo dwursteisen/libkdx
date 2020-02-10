@@ -1,12 +1,12 @@
 
 package com.badlogic.gdx.scenes.scene2d.ui;
 
-import com.badlogic.gdx.Files;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.ui.Value.Fixed;
-import com.badlogic.gdx.utils.Align;
-import com.badlogic.gdx.utils.Pool.Poolable;
+
+
+
+
+
+
 
 /**
  * A cell for a {@link Table}.

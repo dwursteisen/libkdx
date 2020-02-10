@@ -16,9 +16,9 @@
 
 package com.badlogic.gdx.utils;
 
-import java.util.NoSuchElementException;
 
-import com.badlogic.gdx.math.MathUtils;
+
+
 
 /**
  * An unordered set that uses int keys. This implementation uses cuckoo hashing using 3 hashes, random walking, and a small stash

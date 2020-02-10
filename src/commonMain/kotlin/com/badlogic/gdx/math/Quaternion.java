@@ -16,9 +16,9 @@
 
 package com.badlogic.gdx.math;
 
-import com.badlogic.gdx.utils.NumberUtils;
 
-import java.io.Serializable;
+
+
 
 /**
  * A simple quaternion class.

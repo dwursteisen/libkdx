@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.math;
 
-import java.io.Serializable;
+
 
 /**
  * A point in a 2D grid, with integer x and y coordinates

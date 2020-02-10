@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.utils;
 
-import java.util.Comparator;
+
 
 /**
  * An array that queues removal during iteration until the iteration has completed. Queues any removals done after

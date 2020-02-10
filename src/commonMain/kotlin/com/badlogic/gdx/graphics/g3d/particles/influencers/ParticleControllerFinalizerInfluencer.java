@@ -16,11 +16,11 @@
 
 package com.badlogic.gdx.graphics.g3d.particles.influencers;
 
-import com.badlogic.gdx.graphics.g3d.particles.ParallelArray.FloatChannel;
-import com.badlogic.gdx.graphics.g3d.particles.ParallelArray.ObjectChannel;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleChannels;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleController;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+
+
+
+
+
 
 /**
  * It's an {@link Influencer} which updates the simulation of particles containing a {@link ParticleController}. Must be the last

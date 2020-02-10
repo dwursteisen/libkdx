@@ -16,16 +16,16 @@
 
 package com.badlogic.gdx.graphics.g3d;
 
-import com.badlogic.gdx.graphics.g3d.attributes.DirectionalLightsAttribute;
-import com.badlogic.gdx.graphics.g3d.attributes.PointLightsAttribute;
-import com.badlogic.gdx.graphics.g3d.attributes.SpotLightsAttribute;
-import com.badlogic.gdx.graphics.g3d.environment.BaseLight;
-import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
-import com.badlogic.gdx.graphics.g3d.environment.PointLight;
-import com.badlogic.gdx.graphics.g3d.environment.ShadowMap;
-import com.badlogic.gdx.graphics.g3d.environment.SpotLight;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+
+
+
+
+
+
+
+
+
+
 
 public class Environment extends Attributes {
     /**

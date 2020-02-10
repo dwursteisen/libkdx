@@ -16,14 +16,14 @@
 
 package com.badlogic.gdx.graphics.g3d.particles;
 
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.math.Matrix3;
-import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Quaternion;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.Disposable;
-import com.badlogic.gdx.utils.Json;
-import com.badlogic.gdx.utils.JsonValue;
+
+
+
+
+
+
+
+
 
 /**
  * It's the base class of every {@link ParticleController} component. A component duty is to participate in one or some events

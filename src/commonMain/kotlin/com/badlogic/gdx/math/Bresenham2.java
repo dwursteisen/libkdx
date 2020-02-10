@@ -16,8 +16,8 @@
 
 package com.badlogic.gdx.math;
 
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Pool;
+
+
 
 /**
  * Returns a list of points at integer coordinates for a line on a 2D grid, using the Bresenham algorithm.

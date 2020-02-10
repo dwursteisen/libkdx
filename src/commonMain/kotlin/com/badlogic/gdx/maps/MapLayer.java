@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.maps;
 
-import com.badlogic.gdx.utils.GdxRuntimeException;
+
 
 /**
  * Map layer containing a set of objects and properties

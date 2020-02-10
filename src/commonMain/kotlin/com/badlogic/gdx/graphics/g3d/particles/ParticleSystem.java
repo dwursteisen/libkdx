@@ -16,11 +16,11 @@
 
 package com.badlogic.gdx.graphics.g3d.particles;
 
-import com.badlogic.gdx.graphics.g3d.Renderable;
-import com.badlogic.gdx.graphics.g3d.RenderableProvider;
-import com.badlogic.gdx.graphics.g3d.particles.batches.ParticleBatch;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Pool;
+
+
+
+
+
 
 /**
  * Singleton class which manages the particle effects. It's a utility class to ease particle batches management and particle

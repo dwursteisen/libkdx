@@ -4,8 +4,8 @@
 
 package com.badlogic.gdx.maps.objects;
 
-import com.badlogic.gdx.maps.MapObject;
-import com.badlogic.gdx.math.Polygon;
+
+
 
 /** @brief Represents {@link Polygon} map objects */
 public class PolygonMapObject extends MapObject {

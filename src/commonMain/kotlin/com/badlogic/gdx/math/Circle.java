@@ -13,9 +13,9 @@
 
 package com.badlogic.gdx.math;
 
-import com.badlogic.gdx.utils.NumberUtils;
 
-import java.io.Serializable;
+
+
 
 /**
  * A convenient 2D circle class.

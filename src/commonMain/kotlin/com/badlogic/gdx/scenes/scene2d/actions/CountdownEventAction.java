@@ -1,7 +1,7 @@
 
 package com.badlogic.gdx.scenes.scene2d.actions;
 
-import com.badlogic.gdx.scenes.scene2d.Event;
+
 
 /**
  * An EventAction that is complete once it receives X number of events.

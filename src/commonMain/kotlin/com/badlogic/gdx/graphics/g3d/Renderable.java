@@ -16,15 +16,15 @@
 
 package com.badlogic.gdx.graphics.g3d;
 
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Mesh;
-import com.badlogic.gdx.graphics.VertexAttributes;
-import com.badlogic.gdx.graphics.g3d.model.MeshPart;
-import com.badlogic.gdx.graphics.g3d.model.Node;
-import com.badlogic.gdx.graphics.g3d.utils.ShaderProvider;
-import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Pool;
+
+
+
+
+
+
+
+
+
 
 /**
  * A Renderable contains all information about a single render instruction (typically a draw call).</p>

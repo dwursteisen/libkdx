@@ -16,8 +16,8 @@
 
 package com.badlogic.gdx.maps.objects;
 
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.maps.MapObject;
+
+
 
 /**
  * @brief Represents a map object containing a texture (region)

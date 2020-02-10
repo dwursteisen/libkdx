@@ -16,9 +16,9 @@
 
 package com.badlogic.gdx.graphics.g3d.utils;
 
-import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.g3d.Renderable;
-import com.badlogic.gdx.utils.Array;
+
+
+
 
 /**
  * Responsible for sorting {@link Renderable} lists by whatever criteria (material, distance to camera, etc.)

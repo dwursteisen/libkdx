@@ -16,10 +16,10 @@
 
 package com.badlogic.gdx.graphics.g2d;
 
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.utils.NumberUtils;
+
+
+
+
 
 /**
  * @author Stefan Bachmann

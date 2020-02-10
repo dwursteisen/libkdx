@@ -16,8 +16,8 @@
 
 package com.badlogic.gdx.graphics.g3d.utils;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
+
+
 
 /**
  * Manages OpenGL state and tries to reduce state changes. Uses a {@link TextureBinder} to reduce texture binds as well. Call

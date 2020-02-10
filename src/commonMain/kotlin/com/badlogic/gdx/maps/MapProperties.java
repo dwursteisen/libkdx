@@ -16,9 +16,9 @@
 
 package com.badlogic.gdx.maps;
 
-import com.badlogic.gdx.utils.ObjectMap;
 
-import java.util.Iterator;
+
+
 
 /**
  * @brief Set of string indexed values representing map elements' properties, allowing to retrieve, modify and add properties to

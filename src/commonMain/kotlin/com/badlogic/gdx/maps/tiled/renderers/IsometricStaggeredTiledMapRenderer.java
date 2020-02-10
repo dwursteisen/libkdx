@@ -16,34 +16,34 @@
 
 package com.badlogic.gdx.maps.tiled.renderers;
 
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTile;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer.Cell;
 
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.C1;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.C2;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.C3;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.C4;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.U1;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.U2;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.U3;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.U4;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.V1;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.V2;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.V3;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.V4;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.X1;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.X2;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.X3;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.X4;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.Y1;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.Y2;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.Y3;
-import static com.badlogic.gdx.graphics.g2d.SpriteBatch.Y4;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 public class IsometricStaggeredTiledMapRenderer extends BatchTiledMapRenderer {
 

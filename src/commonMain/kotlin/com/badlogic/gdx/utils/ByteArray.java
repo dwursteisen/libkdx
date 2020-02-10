@@ -16,9 +16,9 @@
 
 package com.badlogic.gdx.utils;
 
-import com.badlogic.gdx.math.MathUtils;
 
-import java.util.Arrays;
+
+
 
 /**
  * A resizable, ordered or unordered byte array. Avoids the boxing that occurs with ArrayList<Byte>. If unordered, this class

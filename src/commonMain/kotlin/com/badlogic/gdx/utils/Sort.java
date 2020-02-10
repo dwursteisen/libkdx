@@ -13,7 +13,7 @@
 
 package com.badlogic.gdx.utils;
 
-import java.util.Comparator;
+
 
 /**
  * Provides methods to sort arrays of objects. Sorting requires working memory and this class allows that memory to be reused to

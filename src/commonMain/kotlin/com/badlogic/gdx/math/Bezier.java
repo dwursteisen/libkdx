@@ -16,8 +16,8 @@
 
 package com.badlogic.gdx.math;
 
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+
+
 
 /**
  * Implementation of the Bezier curve.

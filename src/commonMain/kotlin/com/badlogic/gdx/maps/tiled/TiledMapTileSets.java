@@ -16,9 +16,9 @@
 
 package com.badlogic.gdx.maps.tiled;
 
-import com.badlogic.gdx.utils.Array;
 
-import java.util.Iterator;
+
+
 
 /**
  * @brief Collection of {@link TiledMapTileSet}

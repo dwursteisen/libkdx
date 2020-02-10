@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.utils;
 
-import com.badlogic.gdx.Gdx;
+
 
 /**
  * @author xoppa

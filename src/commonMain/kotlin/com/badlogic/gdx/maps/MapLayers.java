@@ -16,10 +16,10 @@
 
 package com.badlogic.gdx.maps;
 
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.reflect.ClassReflection;
 
-import java.util.Iterator;
+
+
+
 
 /**
  * Ordered list of {@link MapLayer} instances owned by a {@link Map}

@@ -16,9 +16,9 @@
 
 package com.badlogic.gdx.math;
 
-import com.badlogic.gdx.utils.GdxRuntimeException;
 
-import java.io.Serializable;
+
+
 
 /**
  * A specialized 3x3 matrix that can represent sequences of 2D translations, scales, flips, rotations, and shears. <a

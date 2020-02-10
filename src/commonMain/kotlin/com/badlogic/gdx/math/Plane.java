@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.math;
 
-import java.io.Serializable;
+
 
 /**
  * A plane defined via a unit length normal and the distance from the origin, as you learned in your math class.

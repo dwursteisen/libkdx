@@ -16,14 +16,14 @@
 
 package com.badlogic.gdx.math;
 
-import com.badlogic.gdx.math.Plane.PlaneSide;
-import com.badlogic.gdx.math.collision.BoundingBox;
-import com.badlogic.gdx.math.collision.Ray;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.FloatArray;
 
-import java.util.Arrays;
-import java.util.List;
+
+
+
+
+
+
+
 
 /**
  * Class offering various static methods for intersection testing between different geometric objects.

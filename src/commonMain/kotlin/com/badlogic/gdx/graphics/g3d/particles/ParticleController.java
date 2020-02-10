@@ -16,20 +16,20 @@
 
 package com.badlogic.gdx.graphics.g3d.particles;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.g3d.particles.ParallelArray.FloatChannel;
-import com.badlogic.gdx.graphics.g3d.particles.emitters.Emitter;
-import com.badlogic.gdx.graphics.g3d.particles.influencers.Influencer;
-import com.badlogic.gdx.graphics.g3d.particles.renderers.ParticleControllerRenderer;
-import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Quaternion;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.math.collision.BoundingBox;
-import com.badlogic.gdx.utils.Array;
-import com.badlogic.gdx.utils.Json;
-import com.badlogic.gdx.utils.JsonValue;
-import com.badlogic.gdx.utils.reflect.ClassReflection;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Base class of all the particle controllers. Encapsulate the generic structure of a controller and methods to update the

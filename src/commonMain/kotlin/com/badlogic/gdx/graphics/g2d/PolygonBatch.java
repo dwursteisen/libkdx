@@ -16,7 +16,7 @@
 
 package com.badlogic.gdx.graphics.g2d;
 
-import com.badlogic.gdx.graphics.Texture;
+
 
 /**
  * A PolygonBatch is an extension of the Batch interface that provides additional render methods specifically for rendering

@@ -16,10 +16,10 @@
 
 package com.badlogic.gdx.utils;
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
 
-import com.badlogic.gdx.math.MathUtils;
+
+
+
 
 /**
  * An unordered map where the keys and values are ints. This implementation is a cuckoo hash map using 3 hashes, random walking,

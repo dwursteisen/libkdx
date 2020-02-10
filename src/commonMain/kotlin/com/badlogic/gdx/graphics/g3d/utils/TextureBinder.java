@@ -16,8 +16,8 @@
 
 package com.badlogic.gdx.graphics.g3d.utils;
 
-import com.badlogic.gdx.graphics.GLTexture;
-import com.badlogic.gdx.graphics.Texture;
+
+
 
 /**
  * Responsible for binding textures, may implement a strategy to avoid binding a texture unnecessarily. A TextureBinder may decide

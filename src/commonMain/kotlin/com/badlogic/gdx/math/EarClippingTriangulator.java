@@ -16,9 +16,9 @@
 
 package com.badlogic.gdx.math;
 
-import com.badlogic.gdx.utils.FloatArray;
-import com.badlogic.gdx.utils.IntArray;
-import com.badlogic.gdx.utils.ShortArray;
+
+
+
 
 /**
  * A simple implementation of the ear cutting algorithm to triangulate simple polygons without holes. For more information:

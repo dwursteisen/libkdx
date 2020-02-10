@@ -16,16 +16,16 @@
 
 package com.badlogic.gdx.graphics.g3d.particles.influencers;
 
-import com.badlogic.gdx.graphics.g3d.particles.ParallelArray.FloatChannel;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleChannels;
-import com.badlogic.gdx.graphics.g3d.particles.ParticleControllerComponent;
-import com.badlogic.gdx.graphics.g3d.particles.values.ScaledNumericValue;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Quaternion;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.Json;
-import com.badlogic.gdx.utils.JsonValue;
+
+
+
+
+
+
+
+
+
+
 
 /**
  * It's the base class for any kind of influencer which operates on angular velocity and acceleration of the particles. All the

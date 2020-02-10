@@ -16,10 +16,10 @@
 
 package com.badlogic.gdx.math;
 
-import com.badlogic.gdx.utils.BooleanArray;
-import com.badlogic.gdx.utils.FloatArray;
-import com.badlogic.gdx.utils.IntArray;
-import com.badlogic.gdx.utils.ShortArray;
+
+
+
+
 
 /**
  * Delaunay triangulation. Adapted from Paul Bourke's triangulate: http://paulbourke.net/papers/triangulate/

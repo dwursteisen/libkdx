@@ -16,11 +16,11 @@
 
 package com.badlogic.gdx.math;
 
-import com.badlogic.gdx.graphics.Camera;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.PerspectiveCamera;
-import com.badlogic.gdx.math.Plane.PlaneSide;
-import com.badlogic.gdx.math.collision.BoundingBox;
+
+
+
+
+
 
 /**
  * A truncated rectangular pyramid. Used to define the viewable region and its projection onto the screen.
