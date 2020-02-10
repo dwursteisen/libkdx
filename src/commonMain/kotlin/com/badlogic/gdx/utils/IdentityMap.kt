@@ -59,7 +59,7 @@ class IdentityMap<K, V> @JvmOverloads constructor(initialCapacity: Int = 51, loa
     }
 
     fun put(key: K?, value: V?): V? {
-        if (key == null) throw java.lang.IllegalArgumentException("key cannot be null.")
+        if (key == null) throw IllegalArgumentException("key cannot be null.")
         val keyTable = keyTable
 
         // Check for existing keys.
@@ -355,7 +355,7 @@ class IdentityMap<K, V> @JvmOverloads constructor(initialCapacity: Int = 51, loa
      */
     fun shrink(maximumCapacity: Int) {
         var maximumCapacity = maximumCapacity
-        if (maximumCapacity < 0) throw java.lang.IllegalArgumentException("maximumCapacity must be >= 0: $maximumCapacity")
+        if (maximumCapacity < 0) throw IllegalArgumentException("maximumCapacity must be >= 0: $maximumCapacity")
         if (size > maximumCapacity) maximumCapacity = size
         if (capacity <= maximumCapacity) return
         maximumCapacity = MathUtils.nextPowerOfTwo(maximumCapacity)
@@ -474,7 +474,7 @@ class IdentityMap<K, V> @JvmOverloads constructor(initialCapacity: Int = 51, loa
      * items to avoid multiple backing array resizes.
      */
     fun ensureCapacity(additionalCapacity: Int) {
-        if (additionalCapacity < 0) throw java.lang.IllegalArgumentException("additionalCapacity must be >= 0: $additionalCapacity")
+        if (additionalCapacity < 0) throw IllegalArgumentException("additionalCapacity must be >= 0: $additionalCapacity")
         val sizeNeeded = size + additionalCapacity
         if (sizeNeeded >= threshold) resize(MathUtils.nextPowerOfTwo(java.lang.Math.ceil(sizeNeeded / loadFactor.toDouble()) as Int))
     }
@@ -485,8 +485,8 @@ class IdentityMap<K, V> @JvmOverloads constructor(initialCapacity: Int = 51, loa
         threshold = (newSize * loadFactor).toInt()
         mask = newSize - 1
         hashShift = 31 - java.lang.Integer.numberOfTrailingZeros(newSize)
-        stashCapacity = java.lang.Math.max(3, java.lang.Math.ceil(java.lang.Math.log(newSize.toDouble())) as Int * 2)
-        pushIterations = java.lang.Math.max(java.lang.Math.min(newSize, 8), java.lang.Math.sqrt(newSize.toDouble()) as Int / 8)
+        stashCapacity = max(3, java.lang.Math.ceil(java.lang.Math.log(newSize.toDouble())) as Int * 2)
+        pushIterations = max(java.lang.Math.min(newSize, 8), java.lang.Math.sqrt(newSize.toDouble()) as Int / 8)
         val oldKeyTable = keyTable
         val oldValueTable = valueTable
         keyTable = arrayOfNulls<Any?>(newSize + stashCapacity) as Array<K?>
@@ -837,17 +837,17 @@ class IdentityMap<K, V> @JvmOverloads constructor(initialCapacity: Int = 51, loa
      */
     init {
         var initialCapacity = initialCapacity
-        if (loadFactor <= 0) throw java.lang.IllegalArgumentException("loadFactor must be > 0: $loadFactor")
+        if (loadFactor <= 0) throw IllegalArgumentException("loadFactor must be > 0: $loadFactor")
         this.loadFactor = loadFactor
-        if (initialCapacity < 0) throw java.lang.IllegalArgumentException("initialCapacity must be >= 0: $initialCapacity")
+        if (initialCapacity < 0) throw IllegalArgumentException("initialCapacity must be >= 0: $initialCapacity")
         initialCapacity = MathUtils.nextPowerOfTwo(java.lang.Math.ceil(initialCapacity / loadFactor.toDouble()) as Int)
-        if (initialCapacity > 1 shl 30) throw java.lang.IllegalArgumentException("initialCapacity is too large: $initialCapacity")
+        if (initialCapacity > 1 shl 30) throw IllegalArgumentException("initialCapacity is too large: $initialCapacity")
         capacity = initialCapacity
         threshold = (capacity * loadFactor).toInt()
         mask = capacity - 1
         hashShift = 31 - java.lang.Integer.numberOfTrailingZeros(capacity)
-        stashCapacity = java.lang.Math.max(3, java.lang.Math.ceil(java.lang.Math.log(capacity.toDouble())) as Int * 2)
-        pushIterations = java.lang.Math.max(java.lang.Math.min(capacity, 8), java.lang.Math.sqrt(capacity.toDouble()) as Int / 8)
+        stashCapacity = max(3, java.lang.Math.ceil(java.lang.Math.log(capacity.toDouble())) as Int * 2)
+        pushIterations = max(java.lang.Math.min(capacity, 8), java.lang.Math.sqrt(capacity.toDouble()) as Int / 8)
         keyTable = arrayOfNulls<Any?>(capacity + stashCapacity) as Array<K?>
         valueTable = arrayOfNulls<Any?>(keyTable!!.size) as Array<V?>
     }

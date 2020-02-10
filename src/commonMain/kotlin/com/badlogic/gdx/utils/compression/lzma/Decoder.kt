@@ -129,8 +129,8 @@ class Decoder {
         if (dictionarySize < 0) return false
         if (m_DictionarySize != dictionarySize) {
             m_DictionarySize = dictionarySize
-            m_DictionarySizeCheck = java.lang.Math.max(m_DictionarySize, 1)
-            m_OutWindow.Create(java.lang.Math.max(m_DictionarySizeCheck, 1 shl 12))
+            m_DictionarySizeCheck = max(m_DictionarySize, 1)
+            m_OutWindow.Create(max(m_DictionarySizeCheck, 1 shl 12))
         }
         return true
     }

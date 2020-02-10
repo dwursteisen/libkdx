@@ -15,14 +15,6 @@
  */
 package com.badlogic.gdx
 
-import com.badlogic.gdx.Graphics.BufferFormat
-import com.badlogic.gdx.Graphics.GraphicsType
-import com.badlogic.gdx.Input.Peripheral
-import com.badlogic.gdx.Input.TextInputListener
-import com.badlogic.gdx.InputEventQueue
-import java.lang.NullPointerException
-import java.lang.RuntimeException
-
 /**
  *
  *
@@ -36,23 +28,23 @@ import java.lang.RuntimeException
 abstract class Game : ApplicationListener {
 
     protected var screen: Screen? = null
-    fun dispose() {
+    override fun dispose() {
         if (screen != null) screen!!.hide()
     }
 
-    fun pause() {
+    override fun pause() {
         if (screen != null) screen!!.pause()
     }
 
-    fun resume() {
+    override fun resume() {
         if (screen != null) screen!!.resume()
     }
 
-    fun render() {
-        if (screen != null) screen!!.render(Gdx.graphics.getDeltaTime())
+    override fun render() {
+        if (screen != null) screen!!.render(Gdx.graphics.deltaTime)
     }
 
-    fun resize(width: Int, height: Int) {
+    override fun resize(width: Int, height: Int) {
         if (screen != null) screen!!.resize(width, height)
     }
 
@@ -65,7 +57,7 @@ abstract class Game : ApplicationListener {
         this.screen = screen
         if (this.screen != null) {
             this.screen!!.show()
-            this.screen!!.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight())
+            this.screen!!.resize(Gdx.graphics.width, Gdx.graphics.height)
         }
     }
 

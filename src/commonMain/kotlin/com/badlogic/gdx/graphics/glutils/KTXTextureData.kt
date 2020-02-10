@@ -176,9 +176,9 @@ class KTXTextureData(// The file we are loading
         val glFormat = glFormat
         var pos = imagePos
         for (level in 0 until numberOfMipmapLevels) {
-            val pixelWidth: Int = java.lang.Math.max(1, pixelWidth shr level)
-            var pixelHeight: Int = java.lang.Math.max(1, pixelHeight shr level)
-            var pixelDepth: Int = java.lang.Math.max(1, pixelDepth shr level)
+            val pixelWidth: Int = max(1, pixelWidth shr level)
+            var pixelHeight: Int = max(1, pixelHeight shr level)
+            var pixelDepth: Int = max(1, pixelDepth shr level)
             compressedData.position(pos)
             val faceLodSize: Int = compressedData.getInt()
             val faceLodSizeRounded = faceLodSize + 3 and 3.inv()

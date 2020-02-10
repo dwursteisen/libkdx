@@ -35,7 +35,7 @@ class RefCountedContainer(`object`: Any?) {
     }
 
     init {
-        if (`object` == null) throw java.lang.IllegalArgumentException("Object must not be null")
+        if (`object` == null) throw IllegalArgumentException("Object must not be null")
         this.`object` = `object`
     }
 }

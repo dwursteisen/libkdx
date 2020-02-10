@@ -143,7 +143,7 @@ class JsonValue : Iterable<JsonValue?> {
             index--
             current = current.next
         }
-        if (current == null) throw java.lang.IllegalArgumentException("Child not found with index: $index")
+        if (current == null) throw IllegalArgumentException("Child not found with index: $index")
         return current
     }
 
@@ -155,7 +155,7 @@ class JsonValue : Iterable<JsonValue?> {
     fun require(name: String): JsonValue {
         var current = child
         while (current != null && (current.name == null || !current.name.equals(name, ignoreCase = true))) current = current.next
-        if (current == null) throw java.lang.IllegalArgumentException("Child not found with name: $name")
+        if (current == null) throw IllegalArgumentException("Child not found with name: $name")
         return current
     }
 
@@ -683,7 +683,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getString(name: String): String? {
-        val child = get(name) ?: throw java.lang.IllegalArgumentException("Named value not found: $name")
+        val child = get(name) ?: throw IllegalArgumentException("Named value not found: $name")
         return child.asString()
     }
 
@@ -693,7 +693,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getFloat(name: String): Float {
-        val child = get(name) ?: throw java.lang.IllegalArgumentException("Named value not found: $name")
+        val child = get(name) ?: throw IllegalArgumentException("Named value not found: $name")
         return child.asFloat()
     }
 
@@ -703,7 +703,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getDouble(name: String): Double {
-        val child = get(name) ?: throw java.lang.IllegalArgumentException("Named value not found: $name")
+        val child = get(name) ?: throw IllegalArgumentException("Named value not found: $name")
         return child.asDouble()
     }
 
@@ -713,7 +713,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getLong(name: String): Long {
-        val child = get(name) ?: throw java.lang.IllegalArgumentException("Named value not found: $name")
+        val child = get(name) ?: throw IllegalArgumentException("Named value not found: $name")
         return child.asLong()
     }
 
@@ -723,7 +723,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getInt(name: String): Int {
-        val child = get(name) ?: throw java.lang.IllegalArgumentException("Named value not found: $name")
+        val child = get(name) ?: throw IllegalArgumentException("Named value not found: $name")
         return child.asInt()
     }
 
@@ -733,7 +733,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getBoolean(name: String): Boolean {
-        val child = get(name) ?: throw java.lang.IllegalArgumentException("Named value not found: $name")
+        val child = get(name) ?: throw IllegalArgumentException("Named value not found: $name")
         return child.asBoolean()
     }
 
@@ -743,7 +743,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getByte(name: String): Byte {
-        val child = get(name) ?: throw java.lang.IllegalArgumentException("Named value not found: $name")
+        val child = get(name) ?: throw IllegalArgumentException("Named value not found: $name")
         return child.asByte()
     }
 
@@ -753,7 +753,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getShort(name: String): Short {
-        val child = get(name) ?: throw java.lang.IllegalArgumentException("Named value not found: $name")
+        val child = get(name) ?: throw IllegalArgumentException("Named value not found: $name")
         return child.asShort()
     }
 
@@ -763,7 +763,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getChar(name: String): Char {
-        val child = get(name) ?: throw java.lang.IllegalArgumentException("Named value not found: $name")
+        val child = get(name) ?: throw IllegalArgumentException("Named value not found: $name")
         return child.asChar()
     }
 
@@ -773,7 +773,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getString(index: Int): String? {
-        val child = get(index) ?: throw java.lang.IllegalArgumentException("Indexed value not found: $name")
+        val child = get(index) ?: throw IllegalArgumentException("Indexed value not found: $name")
         return child.asString()
     }
 
@@ -783,7 +783,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getFloat(index: Int): Float {
-        val child = get(index) ?: throw java.lang.IllegalArgumentException("Indexed value not found: $name")
+        val child = get(index) ?: throw IllegalArgumentException("Indexed value not found: $name")
         return child.asFloat()
     }
 
@@ -793,7 +793,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getDouble(index: Int): Double {
-        val child = get(index) ?: throw java.lang.IllegalArgumentException("Indexed value not found: $name")
+        val child = get(index) ?: throw IllegalArgumentException("Indexed value not found: $name")
         return child.asDouble()
     }
 
@@ -803,7 +803,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getLong(index: Int): Long {
-        val child = get(index) ?: throw java.lang.IllegalArgumentException("Indexed value not found: $name")
+        val child = get(index) ?: throw IllegalArgumentException("Indexed value not found: $name")
         return child.asLong()
     }
 
@@ -813,7 +813,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getInt(index: Int): Int {
-        val child = get(index) ?: throw java.lang.IllegalArgumentException("Indexed value not found: $name")
+        val child = get(index) ?: throw IllegalArgumentException("Indexed value not found: $name")
         return child.asInt()
     }
 
@@ -823,7 +823,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getBoolean(index: Int): Boolean {
-        val child = get(index) ?: throw java.lang.IllegalArgumentException("Indexed value not found: $name")
+        val child = get(index) ?: throw IllegalArgumentException("Indexed value not found: $name")
         return child.asBoolean()
     }
 
@@ -833,7 +833,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getByte(index: Int): Byte {
-        val child = get(index) ?: throw java.lang.IllegalArgumentException("Indexed value not found: $name")
+        val child = get(index) ?: throw IllegalArgumentException("Indexed value not found: $name")
         return child.asByte()
     }
 
@@ -843,7 +843,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getShort(index: Int): Short {
-        val child = get(index) ?: throw java.lang.IllegalArgumentException("Indexed value not found: $name")
+        val child = get(index) ?: throw IllegalArgumentException("Indexed value not found: $name")
         return child.asShort()
     }
 
@@ -853,7 +853,7 @@ class JsonValue : Iterable<JsonValue?> {
      * @throws IllegalArgumentException if the child was not found.
      */
     fun getChar(index: Int): Char {
-        val child = get(index) ?: throw java.lang.IllegalArgumentException("Indexed value not found: $name")
+        val child = get(index) ?: throw IllegalArgumentException("Indexed value not found: $name")
         return child.asChar()
     }
 
@@ -862,7 +862,7 @@ class JsonValue : Iterable<JsonValue?> {
     }
 
     fun setType(type: ValueType?) {
-        if (type == null) throw java.lang.IllegalArgumentException("type cannot be null.")
+        if (type == null) throw IllegalArgumentException("type cannot be null.")
         this.type = type
     }
 
@@ -942,7 +942,7 @@ class JsonValue : Iterable<JsonValue?> {
      * Sets the name of the specified value and adds it after the last child.
      */
     fun addChild(name: String?, value: JsonValue) {
-        if (name == null) throw java.lang.IllegalArgumentException("name cannot be null.")
+        if (name == null) throw IllegalArgumentException("name cannot be null.")
         value.name = name
         addChild(value)
     }

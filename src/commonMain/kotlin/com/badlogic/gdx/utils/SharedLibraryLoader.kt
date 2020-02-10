@@ -102,7 +102,7 @@ class SharedLibraryLoader {
      * Returns a CRC of the remaining bytes in the stream.
      */
     fun crc(input: java.io.InputStream?): String {
-        if (input == null) throw java.lang.IllegalArgumentException("input cannot be null.")
+        if (input == null) throw IllegalArgumentException("input cannot be null.")
         val crc = CRC32()
         val buffer = ByteArray(4096)
         try {

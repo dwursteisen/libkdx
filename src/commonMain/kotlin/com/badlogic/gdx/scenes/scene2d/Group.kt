@@ -539,7 +539,7 @@ class Group : Actor(), Cullable {
      */
     fun localToDescendantCoordinates(descendant: Actor?, localCoords: Vector2?): Vector2? {
         val parent: Group = descendant!!.parent
-            ?: throw java.lang.IllegalArgumentException("Child is not a descendant: $descendant")
+            ?: throw IllegalArgumentException("Child is not a descendant: $descendant")
         // First convert to the actor's parent coordinates.
         if (parent !== this) localToDescendantCoordinates(parent, localCoords)
         // Then from each parent down to the descendant.

@@ -932,8 +932,8 @@ class Stage(viewport: Viewport?, batch: Batch?) : InputAdapter(), Disposable {
      * @param batch Will not be disposed if [.dispose] is called, handle disposal yourself.
      */
     init {
-        if (viewport == null) throw java.lang.IllegalArgumentException("viewport cannot be null.")
-        if (batch == null) throw java.lang.IllegalArgumentException("batch cannot be null.")
+        if (viewport == null) throw IllegalArgumentException("viewport cannot be null.")
+        if (batch == null) throw IllegalArgumentException("batch cannot be null.")
         this.viewport = viewport
         this.batch = batch
         root = Group()

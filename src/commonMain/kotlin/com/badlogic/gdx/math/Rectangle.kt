@@ -271,11 +271,11 @@ class Rectangle : java.io.Serializable, Shape2D {
      */
     fun merge(rect: Rectangle): Rectangle {
         val minX: Float = java.lang.Math.min(x, rect.x)
-        val maxX: Float = java.lang.Math.max(x + width, rect.x + rect.width)
+        val maxX: Float = max(x + width, rect.x + rect.width)
         x = minX
         width = maxX - minX
         val minY: Float = java.lang.Math.min(y, rect.y)
-        val maxY: Float = java.lang.Math.max(y + height, rect.y + rect.height)
+        val maxY: Float = max(y + height, rect.y + rect.height)
         y = minY
         height = maxY - minY
         return this
@@ -290,11 +290,11 @@ class Rectangle : java.io.Serializable, Shape2D {
      */
     fun merge(x: Float, y: Float): Rectangle {
         val minX: Float = java.lang.Math.min(this.x, x)
-        val maxX: Float = java.lang.Math.max(this.x + width, x)
+        val maxX: Float = max(this.x + width, x)
         this.x = minX
         width = maxX - minX
         val minY: Float = java.lang.Math.min(this.y, y)
-        val maxY: Float = java.lang.Math.max(this.y + height, y)
+        val maxY: Float = max(this.y + height, y)
         this.y = minY
         height = maxY - minY
         return this
@@ -324,9 +324,9 @@ class Rectangle : java.io.Serializable, Shape2D {
         for (i in vecs.indices) {
             val v = vecs[i]
             minX = java.lang.Math.min(minX, v.x)
-            maxX = java.lang.Math.max(maxX, v.x)
+            maxX = max(maxX, v.x)
             minY = java.lang.Math.min(minY, v.y)
-            maxY = java.lang.Math.max(maxY, v.y)
+            maxY = max(maxY, v.y)
         }
         x = minX
         width = maxX - minX

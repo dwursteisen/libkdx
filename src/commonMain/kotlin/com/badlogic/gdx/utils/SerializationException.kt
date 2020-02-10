@@ -58,7 +58,7 @@ class SerializationException : RuntimeException {
      * can catch [SerializationException], add trace information, and rethrow the exception.
      */
     fun addTrace(info: String?) {
-        if (info == null) throw java.lang.IllegalArgumentException("info cannot be null.")
+        if (info == null) throw IllegalArgumentException("info cannot be null.")
         if (trace == null) trace = StringBuilder(512)
         trace!!.append('\n')
         trace.append(info)

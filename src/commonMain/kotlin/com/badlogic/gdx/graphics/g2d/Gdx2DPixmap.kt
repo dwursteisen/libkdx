@@ -210,7 +210,7 @@ class Gdx2DPixmap : Disposable {
         fun newPixmap(width: Int, height: Int, format: Int): Gdx2DPixmap? {
             return try {
                 Gdx2DPixmap(width, height, format)
-            } catch (e: java.lang.IllegalArgumentException) {
+            } catch (e: IllegalArgumentException) {
                 null
             }
         }

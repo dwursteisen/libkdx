@@ -194,7 +194,7 @@ void main()
   gl_FragColor = v_color * texture2D(u_texture, v_texCoords);
 }"""
         shader = ShaderProgram(vertexShader, fragmentShader)
-        if (!shader!!.isCompiled()) throw java.lang.IllegalArgumentException("couldn't compile shader: " + shader!!.getLog())
+        if (!shader!!.isCompiled()) throw IllegalArgumentException("couldn't compile shader: " + shader!!.getLog())
     }
 
     override fun getGroupShader(group: Int): ShaderProgram? {

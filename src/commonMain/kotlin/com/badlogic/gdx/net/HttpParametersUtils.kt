@@ -49,7 +49,7 @@ object HttpParametersUtils {
         return try {
             java.net.URLEncoder.encode(content, encoding)
         } catch (e: UnsupportedEncodingException) {
-            throw java.lang.IllegalArgumentException(e)
+            throw IllegalArgumentException(e)
         }
     }
 }

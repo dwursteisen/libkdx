@@ -112,7 +112,7 @@ class ResolutionFileResolver(baseResolver: com.badlogic.gdx.assets.loaders.FileH
      * @param descriptors A list of [Resolution]s. At least one has to be supplied.
      */
     init {
-        if (descriptors.size == 0) throw java.lang.IllegalArgumentException("At least one Resolution needs to be supplied.")
+        if (descriptors.size == 0) throw IllegalArgumentException("At least one Resolution needs to be supplied.")
         this.baseResolver = baseResolver
         this.descriptors = descriptors
     }

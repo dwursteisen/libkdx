@@ -628,7 +628,7 @@ class BitmapFontCache @JvmOverloads constructor(font: BitmapFont, integer: Boole
         this.font = font
         this.integer = integer
         val pageCount: Int = font.regions.size
-        if (pageCount == 0) throw java.lang.IllegalArgumentException("The specified font must contain at least one texture page.")
+        if (pageCount == 0) throw IllegalArgumentException("The specified font must contain at least one texture page.")
         pageVertices = arrayOfNulls(pageCount)
         idx = IntArray(pageCount)
         if (pageCount > 1) {

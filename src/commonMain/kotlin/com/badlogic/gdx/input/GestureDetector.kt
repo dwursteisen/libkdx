@@ -436,7 +436,7 @@ open class GestureDetector(halfTapRectangleWidth: Float, halfTapRectangleHeight:
      * [GestureListener.fling]
      */
     init {
-        if (listener == null) throw java.lang.IllegalArgumentException("listener cannot be null.")
+        if (listener == null) throw IllegalArgumentException("listener cannot be null.")
         tapRectangleWidth = halfTapRectangleWidth
         tapRectangleHeight = halfTapRectangleHeight
         this.tapCountInterval = (tapCountInterval * 1000000000L).toLong()

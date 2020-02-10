@@ -399,7 +399,7 @@ class TextureAtlas : Disposable {
             val region = regions[i]
             if (region.name == name) {
                 val splits = region.splits
-                    ?: throw java.lang.IllegalArgumentException("Region does not have ninepatch splits: $name")
+                    ?: throw IllegalArgumentException("Region does not have ninepatch splits: $name")
                 val patch = NinePatch(region, splits[0], splits[1], splits[2], splits[3])
                 if (region.pads != null) patch.setPadding(region.pads!![0], region.pads!![1], region.pads!![2], region.pads!![3])
                 return patch

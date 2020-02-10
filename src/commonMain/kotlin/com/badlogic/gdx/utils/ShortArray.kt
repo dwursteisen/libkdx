@@ -17,6 +17,7 @@ package com.badlogic.gdx.utils
 
 import java.lang.IllegalStateException
 import java.lang.IndexOutOfBoundsException
+import kotlin.math.max
 
 /**
  * A resizable, ordered or unordered short array. Avoids the boxing that occurs with ArrayList<Short>. If unordered, this class
@@ -83,19 +84,19 @@ class ShortArray {
      */
     fun add(value: Int) {
         var items = items
-        if (size == items.size) items = resize(java.lang.Math.max(8, (size * 1.75f).toInt()))
+        if (size == items.size) items = resize(max(8, (size * 1.75f).toInt()))
         items[size++] = value.toShort()
     }
 
     fun add(value: Short) {
         var items = items
-        if (size == items.size) items = resize(java.lang.Math.max(8, (size * 1.75f).toInt()))
+        if (size == items.size) items = resize(max(8, (size * 1.75f).toInt()))
         items[size++] = value
     }
 
     fun add(value1: Short, value2: Short) {
         var items = items
-        if (size + 1 >= items.size) items = resize(java.lang.Math.max(8, (size * 1.75f).toInt()))
+        if (size + 1 >= items.size) items = resize(max(8, (size * 1.75f).toInt()))
         items[size] = value1
         items[size + 1] = value2
         size += 2
@@ -103,7 +104,7 @@ class ShortArray {
 
     fun add(value1: Short, value2: Short, value3: Short) {
         var items = items
-        if (size + 2 >= items.size) items = resize(java.lang.Math.max(8, (size * 1.75f).toInt()))
+        if (size + 2 >= items.size) items = resize(max(8, (size * 1.75f).toInt()))
         items[size] = value1
         items[size + 1] = value2
         items[size + 2] = value3
@@ -112,7 +113,7 @@ class ShortArray {
 
     fun add(value1: Short, value2: Short, value3: Short, value4: Short) {
         var items = items
-        if (size + 3 >= items.size) items = resize(java.lang.Math.max(8, (size * 1.8f).toInt())) // 1.75 isn't enough when size=5.
+        if (size + 3 >= items.size) items = resize(max(8, (size * 1.8f).toInt())) // 1.75 isn't enough when size=5.
         items[size] = value1
         items[size + 1] = value2
         items[size + 2] = value3
@@ -125,7 +126,7 @@ class ShortArray {
     }
 
     fun addAll(array: ShortArray, offset: Int, length: Int) {
-        if (offset + length > array.size) throw java.lang.IllegalArgumentException("offset + length must be <= size: " + offset + " + " + length + " <= " + array.size)
+        if (offset + length > array.size) throw IllegalArgumentException("offset + length must be <= size: " + offset + " + " + length + " <= " + array.size)
         addAll(array.items, offset, length)
     }
 
@@ -136,7 +137,7 @@ class ShortArray {
     fun addAll(array: ShortArray?, offset: Int, length: Int) {
         var items = items
         val sizeNeeded = size + length
-        if (sizeNeeded > items.size) items = resize(java.lang.Math.max(8, (sizeNeeded * 1.75f).toInt()))
+        if (sizeNeeded > items.size) items = resize(max(8, (sizeNeeded * 1.75f).toInt()))
         java.lang.System.arraycopy(array, offset, items, size, length)
         size += length
     }
@@ -184,7 +185,7 @@ class ShortArray {
     fun insert(index: Int, value: Short) {
         if (index > size) throw IndexOutOfBoundsException("index can't be > size: $index > $size")
         var items = items
-        if (size == items.size) items = resize(java.lang.Math.max(8, (size * 1.75f).toInt()))
+        if (size == items.size) items = resize(max(8, (size * 1.75f).toInt()))
         if (ordered) java.lang.System.arraycopy(items, index, items, index + 1, size - index) else items[size] = items[index]
         size++
         items[index] = value
@@ -259,7 +260,7 @@ class ShortArray {
         val count = end - start + 1
         val lastIndex = n - count
         if (ordered) java.lang.System.arraycopy(items, start + count, items, start, n - (start + count)) else {
-            val i: Int = java.lang.Math.max(lastIndex, end + 1)
+            val i: Int = max(lastIndex, end + 1)
             java.lang.System.arraycopy(items, i, items, start, n - i)
         }
         size = n - count
@@ -347,9 +348,9 @@ class ShortArray {
      * @return [.items]
      */
     fun ensureCapacity(additionalCapacity: Int): ShortArray {
-        if (additionalCapacity < 0) throw java.lang.IllegalArgumentException("additionalCapacity must be >= 0: $additionalCapacity")
+        if (additionalCapacity < 0) throw IllegalArgumentException("additionalCapacity must be >= 0: $additionalCapacity")
         val sizeNeeded = size + additionalCapacity
-        if (sizeNeeded > items.size) resize(java.lang.Math.max(8, sizeNeeded))
+        if (sizeNeeded > items.size) resize(max(8, sizeNeeded))
         return items
     }
 
@@ -359,8 +360,8 @@ class ShortArray {
      * @return [.items]
      */
     fun setSize(newSize: Int): ShortArray {
-        if (newSize < 0) throw java.lang.IllegalArgumentException("newSize must be >= 0: $newSize")
-        if (newSize > items.size) resize(java.lang.Math.max(8, newSize))
+        if (newSize < 0) throw IllegalArgumentException("newSize must be >= 0: $newSize")
+        if (newSize > items.size) resize(max(8, newSize))
         size = newSize
         return items
     }

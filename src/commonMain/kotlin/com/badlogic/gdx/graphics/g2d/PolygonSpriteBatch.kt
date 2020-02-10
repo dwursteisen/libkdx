@@ -1139,7 +1139,7 @@ class PolygonSpriteBatch(maxVertices: Int, maxTriangles: Int, defaultShader: Sha
      */
     init {
         // 32767 is max vertex index.
-        if (maxVertices > 32767) throw java.lang.IllegalArgumentException("Can't have more than 32767 vertices per batch: $maxVertices")
+        if (maxVertices > 32767) throw IllegalArgumentException("Can't have more than 32767 vertices per batch: $maxVertices")
         var vertexDataType: VertexDataType = Mesh.VertexDataType.VertexArray
         if (Gdx.gl30 != null) {
             vertexDataType = VertexDataType.VertexBufferObjectWithVAO

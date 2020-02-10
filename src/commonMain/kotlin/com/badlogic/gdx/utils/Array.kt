@@ -19,8 +19,8 @@ import com.badlogic.gdx.utils.Align
 import com.badlogic.gdx.utils.ArrayMap
 import com.badlogic.gdx.utils.Base64Coder
 import com.badlogic.gdx.utils.Base64Coder.CharMap
-import java.lang.IllegalStateException
-import java.lang.IndexOutOfBoundsException
+import com.badlogic.gdx.utils.reflect.ArrayReflection
+import kotlin.math.max
 
 /**
  * A resizable, ordered or unordered array of objects. If unordered, this class avoids a memory copy when removing elements (the
@@ -28,7 +28,7 @@ import java.lang.IndexOutOfBoundsException
  *
  * @author Nathan Sweet
  */
-class Array<T> : Iterable<T> {
+open class Array<T> : Iterable<T> {
 
     /**
      * Provides direct access to the underlying array. If the Array's generic type is not Object, this field may only be accessed
@@ -52,7 +52,6 @@ class Array<T> : Iterable<T> {
     /**
      * Creates an ordered array with a capacity of 16.
      */
-    @JvmOverloads
     constructor(ordered: Boolean = true, capacity: Int = 16) {
         this.ordered = ordered
         items = arrayOfNulls<Any>(capacity) as kotlin.Array<T?>
@@ -106,13 +105,13 @@ class Array<T> : Iterable<T> {
 
     fun add(value: T) {
         var items: kotlin.Array<T> = items
-        if (size == items.size) items = resize(java.lang.Math.max(8, (size * 1.75f).toInt()))
+        if (size == items.size) items = resize(max(8, (size * 1.75f).toInt()))
         items[size++] = value
     }
 
     fun add(value1: T, value2: T) {
         var items: kotlin.Array<T> = items
-        if (size + 1 >= items.size) items = resize(java.lang.Math.max(8, (size * 1.75f).toInt()))
+        if (size + 1 >= items.size) items = resize(max(8, (size * 1.75f).toInt()))
         items[size] = value1
         items[size + 1] = value2
         size += 2
@@ -120,7 +119,7 @@ class Array<T> : Iterable<T> {
 
     fun add(value1: T, value2: T, value3: T) {
         var items: kotlin.Array<T> = items
-        if (size + 2 >= items.size) items = resize(java.lang.Math.max(8, (size * 1.75f).toInt()))
+        if (size + 2 >= items.size) items = resize(max(8, (size * 1.75f).toInt()))
         items[size] = value1
         items[size + 1] = value2
         items[size + 2] = value3
@@ -129,7 +128,7 @@ class Array<T> : Iterable<T> {
 
     fun add(value1: T, value2: T, value3: T, value4: T) {
         var items: kotlin.Array<T> = items
-        if (size + 3 >= items.size) items = resize(java.lang.Math.max(8, (size * 1.8f).toInt())) // 1.75 isn't enough when size=5.
+        if (size + 3 >= items.size) items = resize(max(8, (size * 1.8f).toInt())) // 1.75 isn't enough when size=5.
         items[size] = value1
         items[size + 1] = value2
         items[size + 2] = value3
@@ -142,7 +141,7 @@ class Array<T> : Iterable<T> {
     }
 
     fun addAll(array: Array<out T>, start: Int, count: Int) {
-        if (start + count > array.size) throw java.lang.IllegalArgumentException("start + count must be <= size: " + start + " + " + count + " <= " + array.size)
+        if (start + count > array.size) throw IllegalArgumentException("start + count must be <= size: " + start + " + " + count + " <= " + array.size)
         addAll(array.items as kotlin.Array<T>, start, count)
     }
 
@@ -153,7 +152,7 @@ class Array<T> : Iterable<T> {
     fun addAll(array: kotlin.Array<T>?, start: Int, count: Int) {
         var items: kotlin.Array<T> = items
         val sizeNeeded = size + count
-        if (sizeNeeded > items.size) items = resize(java.lang.Math.max(8, (sizeNeeded * 1.75f).toInt()))
+        if (sizeNeeded > items.size) items = resize(max(8, (sizeNeeded * 1.75f).toInt()))
         java.lang.System.arraycopy(array, start, items, size, count)
         size += count
     }
@@ -171,7 +170,7 @@ class Array<T> : Iterable<T> {
     fun insert(index: Int, value: T) {
         if (index > size) throw IndexOutOfBoundsException("index can't be > size: $index > $size")
         var items: kotlin.Array<T> = items
-        if (size == items.size) items = resize(java.lang.Math.max(8, (size * 1.75f).toInt()))
+        if (size == items.size) items = resize(max(8, (size * 1.75f).toInt()))
         if (ordered) java.lang.System.arraycopy(items, index, items, index + 1, size - index) else items[size] = items[index]
         size++
         items[index] = value
@@ -210,7 +209,7 @@ class Array<T> : Iterable<T> {
      * @param identity If true, == comparison will be used. If false, .equals() comparison will be used.
      */
     fun containsAll(values: Array<out T>, identity: Boolean): Boolean {
-        val items: kotlin.Array<T> = values.items
+        val items: kotlin.Array<T> = values.items as kotlin.Array<T>
         var i = 0
         val n = values.size
         while (i < n) {
@@ -227,7 +226,7 @@ class Array<T> : Iterable<T> {
      * @param identity If true, == comparison will be used. If false, .equals() comparison will be used.
      */
     fun containsAny(values: Array<out T>, identity: Boolean): Boolean {
-        val items: kotlin.Array<T> = values.items
+        val items: kotlin.Array<T> = values.items as kotlin.Array<T>
         var i = 0
         val n = values.size
         while (i < n) {
@@ -338,7 +337,7 @@ class Array<T> : Iterable<T> {
         val count = end - start + 1
         val lastIndex = n - count
         if (ordered) java.lang.System.arraycopy(items, start + count, items, start, n - (start + count)) else {
-            val i: Int = java.lang.Math.max(lastIndex, end + 1)
+            val i: Int = max(lastIndex, end + 1)
             java.lang.System.arraycopy(items, i, items, start, n - i)
         }
         for (i in lastIndex until n) items[i] = null
@@ -359,7 +358,7 @@ class Array<T> : Iterable<T> {
             var i = 0
             val n = array.size
             while (i < n) {
-                val item: T = array[i]
+                val item: T = array[i]!!
                 for (ii in 0 until size) {
                     if (item === items[ii]) {
                         removeIndex(ii)
@@ -373,7 +372,7 @@ class Array<T> : Iterable<T> {
             var i = 0
             val n = array.size
             while (i < n) {
-                val item: T = array[i]
+                val item: T = array[i]!!
                 for (ii in 0 until size) {
                     if (item == items[ii]) {
                         removeIndex(ii)
@@ -456,9 +455,9 @@ class Array<T> : Iterable<T> {
      * @return [.items]
      */
     fun ensureCapacity(additionalCapacity: Int): kotlin.Array<T?> {
-        if (additionalCapacity < 0) throw java.lang.IllegalArgumentException("additionalCapacity must be >= 0: $additionalCapacity")
+        if (additionalCapacity < 0) throw IllegalArgumentException("additionalCapacity must be >= 0: $additionalCapacity")
         val sizeNeeded = size + additionalCapacity
-        if (sizeNeeded > items.size) resize(java.lang.Math.max(8, sizeNeeded))
+        if (sizeNeeded > items.size) resize(max(8, sizeNeeded))
         return items
     }
 
@@ -469,7 +468,7 @@ class Array<T> : Iterable<T> {
      */
     fun setSize(newSize: Int): kotlin.Array<T?> {
         truncate(newSize)
-        if (newSize > items.size) resize(java.lang.Math.max(8, newSize))
+        if (newSize > items.size) resize(max(8, newSize))
         size = newSize
         return items
     }
@@ -586,7 +585,7 @@ class Array<T> : Iterable<T> {
      * taken.
      */
     fun truncate(newSize: Int) {
-        if (newSize < 0) throw java.lang.IllegalArgumentException("newSize must be >= 0: $newSize")
+        if (newSize < 0) throw IllegalArgumentException("newSize must be >= 0: $newSize")
         if (size <= newSize) return
         for (i in newSize until size) items[i] = null
         size = newSize

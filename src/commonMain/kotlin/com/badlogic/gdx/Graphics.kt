@@ -15,16 +15,11 @@
  */
 package com.badlogic.gdx
 
-import com.badlogic.gdx.Input.Peripheral
-import com.badlogic.gdx.Input.TextInputListener
-import com.badlogic.gdx.InputEventQueue
 import com.badlogic.gdx.graphics.Cursor
 import com.badlogic.gdx.graphics.Cursor.SystemCursor
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.GL30
-import com.badlogic.gdx.graphics.Mesh
 import com.badlogic.gdx.graphics.Pixmap
-import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.glutils.GLVersion
 
 /** This interface encapsulates communication with the graphics processor. Depending on the available hardware and the current

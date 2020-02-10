@@ -202,7 +202,7 @@ class Actor {
      * @return true of the event was [cancelled][Event.cancel].
      */
     fun notify(event: Event?, capture: Boolean): Boolean {
-        if (event.getTarget() == null) throw java.lang.IllegalArgumentException("The event target cannot be null.")
+        if (event.getTarget() == null) throw IllegalArgumentException("The event target cannot be null.")
         val listeners: DelayedRemovalArray<EventListener?> = if (capture) captureListeners else listeners
         if (listeners.size === 0) return event!!.isCancelled()
         event!!.setListenerActor(this)
@@ -272,7 +272,7 @@ class Actor {
      * @see ClickListener
      */
     fun addListener(listener: EventListener?): Boolean {
-        if (listener == null) throw java.lang.IllegalArgumentException("listener cannot be null.")
+        if (listener == null) throw IllegalArgumentException("listener cannot be null.")
         if (!listeners.contains(listener, true)) {
             listeners.add(listener)
             return true
@@ -281,7 +281,7 @@ class Actor {
     }
 
     fun removeListener(listener: EventListener?): Boolean {
-        if (listener == null) throw java.lang.IllegalArgumentException("listener cannot be null.")
+        if (listener == null) throw IllegalArgumentException("listener cannot be null.")
         return listeners.removeValue(listener, true)
     }
 
@@ -295,13 +295,13 @@ class Actor {
      * @see .fire
      */
     fun addCaptureListener(listener: EventListener?): Boolean {
-        if (listener == null) throw java.lang.IllegalArgumentException("listener cannot be null.")
+        if (listener == null) throw IllegalArgumentException("listener cannot be null.")
         if (!captureListeners.contains(listener, true)) captureListeners.add(listener)
         return true
     }
 
     fun removeCaptureListener(listener: EventListener?): Boolean {
-        if (listener == null) throw java.lang.IllegalArgumentException("listener cannot be null.")
+        if (listener == null) throw IllegalArgumentException("listener cannot be null.")
         return captureListeners.removeValue(listener, true)
     }
 
@@ -374,7 +374,7 @@ class Actor {
      * Returns true if this actor is the same as or is the descendant of the specified actor.
      */
     fun isDescendantOf(actor: Actor?): Boolean {
-        if (actor == null) throw java.lang.IllegalArgumentException("actor cannot be null.")
+        if (actor == null) throw IllegalArgumentException("actor cannot be null.")
         var parent: Actor? = this
         do {
             if (parent === actor) return true
@@ -387,7 +387,7 @@ class Actor {
      * Returns true if this actor is the same as or is the ascendant of the specified actor.
      */
     fun isAscendantOf(actor: Actor?): Boolean {
-        var actor: Actor? = actor ?: throw java.lang.IllegalArgumentException("actor cannot be null.")
+        var actor: Actor? = actor ?: throw IllegalArgumentException("actor cannot be null.")
         do {
             if (actor === this) return true
             actor = actor!!.parent
@@ -400,7 +400,7 @@ class Actor {
      * found.
      */
     fun <T : Actor?> firstAscendant(type: java.lang.Class<T?>?): T? {
-        if (type == null) throw java.lang.IllegalArgumentException("actor cannot be null.")
+        if (type == null) throw IllegalArgumentException("actor cannot be null.")
         var actor: Actor? = this
         do {
             if (ClassReflection.isInstance(type, actor)) return actor as T?
@@ -833,7 +833,7 @@ class Actor {
      */
     fun setZIndex(index: Int): Boolean {
         var index = index
-        if (index < 0) throw java.lang.IllegalArgumentException("ZIndex cannot be < 0.")
+        if (index < 0) throw IllegalArgumentException("ZIndex cannot be < 0.")
         val parent: Group = parent ?: return false
         val children: Array<Actor?> = parent.children
         if (children.size === 1) return false

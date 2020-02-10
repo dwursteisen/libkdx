@@ -78,7 +78,7 @@ object Base64Coder {
     fun encodeLines(`in`: ByteArray, iOff: Int = 0, iLen: Int = `in`.size, lineLen: Int = 76, lineSeparator: String = systemLineSeparator, charMap: CharArray = regularMap.encodingMap): String {
         val blockLen = lineLen * 3 / 4
         if (blockLen <= 0) {
-            throw java.lang.IllegalArgumentException()
+            throw IllegalArgumentException()
         }
         val lines = (iLen + blockLen - 1) / blockLen
         val bufLen = (iLen + 2) / 3 * 4 + lines * lineSeparator.length
@@ -250,7 +250,7 @@ object Base64Coder {
     fun decode(`in`: CharArray, iOff: Int = 0, iLen: Int = `in`.size, inverseCharMap: ByteArray = regularMap.decodingMap): ByteArray {
         var iLen = iLen
         if (iLen % 4 != 0) {
-            throw java.lang.IllegalArgumentException("Length of Base64 encoded input string is not a multiple of 4.")
+            throw IllegalArgumentException("Length of Base64 encoded input string is not a multiple of 4.")
         }
         while (iLen > 0 && `in`[iOff + iLen - 1] == '=') {
             iLen--
@@ -266,14 +266,14 @@ object Base64Coder {
             val i2: Int = (if (ip < iEnd) `in`[ip++] else 'A'.toInt()).toInt()
             val i3: Int = (if (ip < iEnd) `in`[ip++] else 'A'.toInt()).toInt()
             if (i0 > 127 || i1 > 127 || i2 > 127 || i3 > 127) {
-                throw java.lang.IllegalArgumentException("Illegal character in Base64 encoded data.")
+                throw IllegalArgumentException("Illegal character in Base64 encoded data.")
             }
             val b0 = inverseCharMap[i0].toInt()
             val b1 = inverseCharMap[i1].toInt()
             val b2 = inverseCharMap[i2].toInt()
             val b3 = inverseCharMap[i3].toInt()
             if (b0 < 0 || b1 < 0 || b2 < 0 || b3 < 0) {
-                throw java.lang.IllegalArgumentException("Illegal character in Base64 encoded data.")
+                throw IllegalArgumentException("Illegal character in Base64 encoded data.")
             }
             val o0 = b0 shl 2 or (b1 ushr 4)
             val o1 = b1 and 0xf shl 4 or (b2 ushr 2)

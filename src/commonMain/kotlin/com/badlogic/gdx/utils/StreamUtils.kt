@@ -110,7 +110,7 @@ object StreamUtils {
      */
     @Throws(IOException::class)
     fun copyStreamToByteArray(input: InputStream?, estimatedSize: Int): ByteArray {
-        val baos: ByteArrayOutputStream = OptimizedByteArrayOutputStream(java.lang.Math.max(0, estimatedSize))
+        val baos: ByteArrayOutputStream = OptimizedByteArrayOutputStream(max(0, estimatedSize))
         copyStream(input, baos)
         return baos.toByteArray()
     }
@@ -141,7 +141,7 @@ object StreamUtils {
     @Throws(IOException::class)
     fun copyStreamToString(input: InputStream?, estimatedSize: Int, charset: String?): String {
         val reader: InputStreamReader = charset?.let { InputStreamReader(input, it) } ?: InputStreamReader(input)
-        val writer = StringWriter(java.lang.Math.max(0, estimatedSize))
+        val writer = StringWriter(max(0, estimatedSize))
         val buffer = CharArray(DEFAULT_BUFFER_SIZE)
         var charsRead: Int
         while (reader.read(buffer).also({ charsRead = it }) != -1) {

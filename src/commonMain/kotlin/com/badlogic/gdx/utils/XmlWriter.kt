@@ -15,8 +15,7 @@
  */
 package com.badlogic.gdx.utils
 
-import java.lang.IllegalStateException
-import kotlin.jvm.Throws
+import kotlin.math.max
 
 //@off
 /**
@@ -47,14 +46,12 @@ class XmlWriter(writer: Writer) : Writer() {
     private var indentNextClose = false
     var indent = 0
 
-    @Throws(IOException::class)
     private fun indent() {
         var count = indent
         if (currentElement != null) count++
         for (i in 0 until count) writer.write('\t')
     }
 
-    @Throws(IOException::class)
     fun element(name: String?): XmlWriter {
         if (startElementContent()) writer.write('\n')
         indent()
@@ -64,12 +61,10 @@ class XmlWriter(writer: Writer) : Writer() {
         return this
     }
 
-    @Throws(IOException::class)
     fun element(name: String?, text: Any?): XmlWriter {
         return element(name).text(text).pop()
     }
 
-    @Throws(IOException::class)
     private fun startElementContent(): Boolean {
         if (currentElement == null) return false
         indent++
@@ -79,7 +74,6 @@ class XmlWriter(writer: Writer) : Writer() {
         return true
     }
 
-    @Throws(IOException::class)
     fun attribute(name: String?, value: Any?): XmlWriter {
         checkNotNull(currentElement)
         writer.write(' ')
@@ -90,7 +84,6 @@ class XmlWriter(writer: Writer) : Writer() {
         return this
     }
 
-    @Throws(IOException::class)
     fun text(text: Any?): XmlWriter {
         startElementContent()
         val string = text?.toString() ?: "null"
@@ -104,13 +97,12 @@ class XmlWriter(writer: Writer) : Writer() {
         return this
     }
 
-    @Throws(IOException::class)
     fun pop(): XmlWriter {
         if (currentElement != null) {
             writer.write("/>\n")
             currentElement = null
         } else {
-            indent = java.lang.Math.max(indent - 1, 0)
+            indent = max(indent - 1, 0)
             if (indentNextClose) indent()
             writer.write("</")
             writer.write(stack.pop())
@@ -123,19 +115,16 @@ class XmlWriter(writer: Writer) : Writer() {
     /**
      * Calls [.pop] for each remaining open element, if any, and closes the stream.
      */
-    @Throws(IOException::class)
     fun close() {
-        while (stack.size !== 0) pop()
+        while (stack.size != 0) pop()
         writer.close()
     }
 
-    @Throws(IOException::class)
     fun write(cbuf: CharArray?, off: Int, len: Int) {
         startElementContent()
         writer.write(cbuf, off, len)
     }
 
-    @Throws(IOException::class)
     fun flush() {
         writer.flush()
     }

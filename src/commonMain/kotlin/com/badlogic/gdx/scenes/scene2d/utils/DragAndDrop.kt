@@ -276,7 +276,7 @@ class DragAndDrop {
         }
 
         init {
-            if (actor == null) throw java.lang.IllegalArgumentException("actor cannot be null.")
+            if (actor == null) throw IllegalArgumentException("actor cannot be null.")
             this.actor = actor
         }
     }
@@ -313,10 +313,10 @@ class DragAndDrop {
         }
 
         init {
-            if (actor == null) throw java.lang.IllegalArgumentException("actor cannot be null.")
+            if (actor == null) throw IllegalArgumentException("actor cannot be null.")
             this.actor = actor
             val stage: Stage = actor.getStage()
-            if (stage != null && actor === stage.getRoot()) throw java.lang.IllegalArgumentException("The stage root cannot be a drag and drop target.")
+            if (stage != null && actor === stage.getRoot()) throw IllegalArgumentException("The stage root cannot be a drag and drop target.")
         }
     }
 

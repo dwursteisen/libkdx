@@ -95,7 +95,7 @@ class ArrayMap<K, V> : Iterable<ObjectMap.Entry<K, V>?> {
     fun put(key: K, value: V): Int {
         var index = indexOfKey(key)
         if (index == -1) {
-            if (size == keys.size) resize(java.lang.Math.max(8, (size * 1.75f).toInt()))
+            if (size == keys.size) resize(max(8, (size * 1.75f).toInt()))
             index = size++
         }
         keys[index] = key
@@ -106,7 +106,7 @@ class ArrayMap<K, V> : Iterable<ObjectMap.Entry<K, V>?> {
     fun put(key: K, value: V, index: Int): Int {
         val existingIndex = indexOfKey(key)
         if (existingIndex != -1) removeIndex(existingIndex) else if (size == keys.size) //
-            resize(java.lang.Math.max(8, (size * 1.75f).toInt()))
+            resize(max(8, (size * 1.75f).toInt()))
         java.lang.System.arraycopy(keys, index, keys, index + 1, size - index)
         java.lang.System.arraycopy(values, index, values, index + 1, size - index)
         keys[index] = key
@@ -117,9 +117,9 @@ class ArrayMap<K, V> : Iterable<ObjectMap.Entry<K, V>?> {
 
     @JvmOverloads
     fun putAll(map: ArrayMap<out K, out V>, offset: Int = 0, length: Int = map.size) {
-        if (offset + length > map.size) throw java.lang.IllegalArgumentException("offset + length must be <= size: " + offset + " + " + length + " <= " + map.size)
+        if (offset + length > map.size) throw IllegalArgumentException("offset + length must be <= size: " + offset + " + " + length + " <= " + map.size)
         val sizeNeeded = size + length - offset
-        if (sizeNeeded >= keys.size) resize(java.lang.Math.max(8, (sizeNeeded * 1.75f).toInt()))
+        if (sizeNeeded >= keys.size) resize(max(8, (sizeNeeded * 1.75f).toInt()))
         java.lang.System.arraycopy(map.keys, offset, keys, size, length)
         java.lang.System.arraycopy(map.values, offset, values, size, length)
         size += length
@@ -205,7 +205,7 @@ class ArrayMap<K, V> : Iterable<ObjectMap.Entry<K, V>?> {
 
     fun insert(index: Int, key: K, value: V) {
         if (index > size) throw IndexOutOfBoundsException(index.toString())
-        if (size == keys.size) resize(java.lang.Math.max(8, (size * 1.75f).toInt()))
+        if (size == keys.size) resize(max(8, (size * 1.75f).toInt()))
         if (ordered) {
             java.lang.System.arraycopy(keys, index, keys, index + 1, size - index)
             java.lang.System.arraycopy(values, index, values, index + 1, size - index)
@@ -421,9 +421,9 @@ class ArrayMap<K, V> : Iterable<ObjectMap.Entry<K, V>?> {
      * many entries to avoid multiple backing array resizes.
      */
     fun ensureCapacity(additionalCapacity: Int) {
-        if (additionalCapacity < 0) throw java.lang.IllegalArgumentException("additionalCapacity must be >= 0: $additionalCapacity")
+        if (additionalCapacity < 0) throw IllegalArgumentException("additionalCapacity must be >= 0: $additionalCapacity")
         val sizeNeeded = size + additionalCapacity
-        if (sizeNeeded >= keys.size) resize(java.lang.Math.max(8, sizeNeeded))
+        if (sizeNeeded >= keys.size) resize(max(8, sizeNeeded))
     }
 
     protected fun resize(newSize: Int) {

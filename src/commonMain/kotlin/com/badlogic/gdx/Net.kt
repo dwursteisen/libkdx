@@ -29,8 +29,6 @@ import com.badlogic.gdx.net.Socket
 import com.badlogic.gdx.net.SocketHints
 import com.badlogic.gdx.utils.GdxRuntimeException
 import com.badlogic.gdx.utils.Pool.Poolable
-import java.util.HashMap
-import kotlin.jvm.Throws
 
 /** Provides methods to perform networking operations, such as simple HTTP get and post requests, and TCP server/client socket
  * communication.
@@ -212,12 +210,11 @@ interface Net {
          * @param followRedirects whether to follow redirects.
          * @exception IllegalArgumentException if redirection is disabled on the GWT backend.
          */
-        @Throws(java.lang.IllegalArgumentException::class)
         fun setFollowRedirects(followRedirects: Boolean) {
-            if (followRedirects || Gdx.app.getType() !== ApplicationType.WebGL) {
+            if (followRedirects || Gdx.app.type != ApplicationType.WebGL) {
                 this.followRedirects = followRedirects
             } else {
-                throw java.lang.IllegalArgumentException("Following redirects can't be disabled using the GWT/WebGL backend!")
+                throw IllegalArgumentException("Following redirects can't be disabled using the GWT/WebGL backend!")
             }
         }
 
@@ -236,7 +233,7 @@ interface Net {
             return followRedirects
         }
 
-        fun reset() {
+        override fun reset() {
             method = null
             url = null
             headers.clear()

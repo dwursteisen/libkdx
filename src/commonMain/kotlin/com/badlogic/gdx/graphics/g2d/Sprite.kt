@@ -101,7 +101,7 @@ class Sprite : TextureRegion {
      * @param srcHeight The height of the texture region. May be negative to flip the sprite when drawn.
      */
     constructor(texture: Texture?, srcX: Int, srcY: Int, srcWidth: Int, srcHeight: Int) {
-        if (texture == null) throw java.lang.IllegalArgumentException("texture cannot be null.")
+        if (texture == null) throw IllegalArgumentException("texture cannot be null.")
         texture = texture
         setRegion(srcX.toFloat(), srcY.toFloat(), srcWidth.toFloat(), srcHeight.toFloat())
         setColor(1f, 1f, 1f, 1f)
@@ -137,7 +137,7 @@ class Sprite : TextureRegion {
 
     /** Make this sprite a copy in every way of the specified sprite  */
     fun set(sprite: Sprite?) {
-        if (sprite == null) throw java.lang.IllegalArgumentException("sprite cannot be null.")
+        if (sprite == null) throw IllegalArgumentException("sprite cannot be null.")
         java.lang.System.arraycopy(sprite.vertices, 0, vertices, 0, SPRITE_SIZE)
         texture = sprite.texture
         u = sprite.u

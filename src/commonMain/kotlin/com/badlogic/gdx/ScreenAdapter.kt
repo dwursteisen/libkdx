@@ -18,7 +18,7 @@ package com.badlogic.gdx
 /** Convenience implementation of [Screen]. Derive from this and only override what you need.
  * @author semtiko
  */
-class ScreenAdapter : Screen {
+open class ScreenAdapter : Screen {
 
     override fun render(delta: Float) {}
     override fun resize(width: Int, height: Int) {}

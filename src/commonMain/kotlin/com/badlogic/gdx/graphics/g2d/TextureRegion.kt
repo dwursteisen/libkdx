@@ -51,7 +51,7 @@ class TextureRegion {
 
     /** Constructs a region the size of the specified texture.  */
     constructor(texture: Texture?) {
-        if (texture == null) throw java.lang.IllegalArgumentException("texture cannot be null.")
+        if (texture == null) throw IllegalArgumentException("texture cannot be null.")
         this.texture = texture
         setRegion(0, 0, texture.getWidth(), texture.getHeight())
     }

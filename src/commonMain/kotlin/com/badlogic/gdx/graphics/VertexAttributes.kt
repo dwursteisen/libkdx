@@ -272,7 +272,7 @@ class VertexAttributes(vararg attributes: VertexAttribute?) : Iterable<VertexAtt
      * Constructor, sets the vertex attributes in a specific order
      */
     init {
-        if (attributes.size == 0) throw java.lang.IllegalArgumentException("attributes must be >= 1")
+        if (attributes.size == 0) throw IllegalArgumentException("attributes must be >= 1")
         val list: Array<VertexAttribute?> = arrayOfNulls<VertexAttribute>(attributes.size)
         for (i in 0 until attributes.size) list[i] = attributes[i]
         this.attributes = list

@@ -51,10 +51,10 @@ abstract class Pool<T> @JvmOverloads constructor(initialCapacity: Int = 16, max:
      * The pool does not check if an object is already freed, so the same object must not be freed multiple times.
      */
     fun free(`object`: T?) {
-        if (`object` == null) throw java.lang.IllegalArgumentException("object cannot be null.")
+        if (`object` == null) throw IllegalArgumentException("object cannot be null.")
         if (freeObjects.size < max) {
             freeObjects.add(`object`)
-            peak = java.lang.Math.max(peak, freeObjects.size)
+            peak = max(peak, freeObjects.size)
         }
         reset(`object`)
     }
@@ -76,7 +76,7 @@ abstract class Pool<T> @JvmOverloads constructor(initialCapacity: Int = 16, max:
      * @see .free
      */
     fun freeAll(objects: com.badlogic.gdx.utils.Array<T?>?) {
-        if (objects == null) throw java.lang.IllegalArgumentException("objects cannot be null.")
+        if (objects == null) throw IllegalArgumentException("objects cannot be null.")
         val freeObjects: com.badlogic.gdx.utils.Array<T?>? = freeObjects
         val max = max
         for (i in 0 until objects.size) {
@@ -84,7 +84,7 @@ abstract class Pool<T> @JvmOverloads constructor(initialCapacity: Int = 16, max:
             if (freeObjects.size < max) freeObjects.add(`object`)
             reset(`object`)
         }
-        peak = java.lang.Math.max(peak, freeObjects.size)
+        peak = max(peak, freeObjects.size)
     }
 
     /**

@@ -31,7 +31,7 @@ import java.lang.RuntimeException
  */
 class InputMultiplexer : InputProcessor {
 
-    private val processors: SnapshotArray<InputProcessor?>? = SnapshotArray(4)
+    private val processors: SnapshotArray<InputProcessor?> = SnapshotArray(4)
 
     constructor() {}
     constructor(vararg processors: InputProcessor?) {

@@ -86,7 +86,7 @@ object PropertiesUtils {
                         continue
                     }
                 } else if (count <= 4) {
-                    throw java.lang.IllegalArgumentException("Invalid Unicode sequence: illegal character")
+                    throw IllegalArgumentException("Invalid Unicode sequence: illegal character")
                 }
                 mode = NONE
                 buf[offset++] = unicode.toChar()
@@ -205,7 +205,7 @@ object PropertiesUtils {
             buf[offset++] = nextChar
         }
         if (mode == UNICODE && count <= 4) {
-            throw java.lang.IllegalArgumentException("Invalid Unicode sequence: expected format \\uxxxx")
+            throw IllegalArgumentException("Invalid Unicode sequence: expected format \\uxxxx")
         }
         if (keyLength == -1 && offset > 0) {
             keyLength = offset

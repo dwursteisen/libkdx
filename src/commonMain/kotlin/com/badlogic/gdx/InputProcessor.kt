@@ -16,10 +16,6 @@
 package com.badlogic.gdx
 
 import com.badlogic.gdx.Input.Buttons
-import com.badlogic.gdx.Net.HttpResponseListener
-import com.badlogic.gdx.Net.Protocol
-import java.util.HashMap
-import kotlin.jvm.Throws
 
 /** An InputProcessor is used to receive input events from the keyboard and the touch screen (mouse on the desktop). For this it
  * has to be registered with the [Input.setInputProcessor] method. It will be called each frame before the

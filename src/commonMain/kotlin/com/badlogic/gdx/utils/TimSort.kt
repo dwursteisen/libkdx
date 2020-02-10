@@ -373,7 +373,7 @@ internal class TimSort<T> {
             java.lang.System.arraycopy(a, cursor2, a, dest, len2)
             a[dest + len2] = tmp[cursor1] // Last elt of run 1 to end of merge
         } else if (len1 == 0) {
-            throw java.lang.IllegalArgumentException("Comparison method violates its general contract!")
+            throw IllegalArgumentException("Comparison method violates its general contract!")
         } else {
             if (DEBUG) assert(len2 == 0)
             if (DEBUG) assert(len1 > 1)
@@ -478,7 +478,7 @@ internal class TimSort<T> {
             java.lang.System.arraycopy(a, cursor1 + 1, a, dest + 1, len1)
             a[dest] = tmp[cursor2] // Move first elt of run2 to front of merge
         } else if (len2 == 0) {
-            throw java.lang.IllegalArgumentException("Comparison method violates its general contract!")
+            throw IllegalArgumentException("Comparison method violates its general contract!")
         } else {
             if (DEBUG) assert(len1 == 0)
             if (DEBUG) assert(len2 > 0)
@@ -494,7 +494,7 @@ internal class TimSort<T> {
      * @return tmp, whether or not it grew
      */
     private fun ensureCapacity(minCapacity: Int): Array<T?>? {
-        tmpCount = java.lang.Math.max(tmpCount, minCapacity)
+        tmpCount = max(tmpCount, minCapacity)
         if (tmp!!.size < minCapacity) {
             // Compute smallest power of 2 > minCapacity
             var newSize = minCapacity
@@ -881,7 +881,7 @@ internal class TimSort<T> {
          * @throws ArrayIndexOutOfBoundsException if fromIndex < 0 or toIndex > arrayLen
          */
         private fun rangeCheck(arrayLen: Int, fromIndex: Int, toIndex: Int) {
-            if (fromIndex > toIndex) throw java.lang.IllegalArgumentException("fromIndex($fromIndex) > toIndex($toIndex)")
+            if (fromIndex > toIndex) throw IllegalArgumentException("fromIndex($fromIndex) > toIndex($toIndex)")
             if (fromIndex < 0) throw ArrayIndexOutOfBoundsException(fromIndex)
             if (toIndex > arrayLen) throw ArrayIndexOutOfBoundsException(toIndex)
         }

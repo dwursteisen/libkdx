@@ -15,8 +15,6 @@
  */
 package com.badlogic.gdx
 
-import com.badlogic.gdx.Files.FileType
-
 /** Convenience implementation of [ApplicationListener]. Derive from this and only override what you need.
  * @author mzechner
  */

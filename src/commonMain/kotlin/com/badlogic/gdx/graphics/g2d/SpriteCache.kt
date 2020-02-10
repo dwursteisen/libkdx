@@ -911,7 +911,7 @@ void main()
   gl_FragColor = v_color * texture2D(u_texture, v_texCoords);
 }"""
             val shader = ShaderProgram(vertexShader, fragmentShader)
-            if (!shader.isCompiled()) throw java.lang.IllegalArgumentException("Error compiling shader: " + shader.getLog())
+            if (!shader.isCompiled()) throw IllegalArgumentException("Error compiling shader: " + shader.getLog())
             return shader
         }
     }
@@ -922,7 +922,7 @@ void main()
      * @param useIndices If true, indexed geometry will be used.
      */
     init {
-        if (useIndices && size > 8191) throw java.lang.IllegalArgumentException("Can't have more than 8191 sprites per batch: $size")
+        if (useIndices && size > 8191) throw IllegalArgumentException("Can't have more than 8191 sprites per batch: $size")
         mesh = Mesh(true, size * if (useIndices) 4 else 6, if (useIndices) size * 6 else 0, VertexAttribute(Usage.Position, 2,
             ShaderProgram.POSITION_ATTRIBUTE), VertexAttribute(Usage.ColorPacked, 4, ShaderProgram.COLOR_ATTRIBUTE),
             VertexAttribute(Usage.TextureCoordinates, 2, ShaderProgram.TEXCOORD_ATTRIBUTE + "0"))

@@ -887,7 +887,7 @@ void main()
   gl_FragColor = v_color * texture2D(u_texture, v_texCoords);
 }"""
             val shader = ShaderProgram(vertexShader, fragmentShader)
-            if (!shader.isCompiled()) throw java.lang.IllegalArgumentException("Error compiling shader: " + shader.getLog())
+            if (!shader.isCompiled()) throw IllegalArgumentException("Error compiling shader: " + shader.getLog())
             return shader
         }
     }
@@ -909,7 +909,7 @@ void main()
      */
     init {
         // 32767 is max vertex index, so 32767 / 4 vertices per sprite = 8191 sprites max.
-        if (size > 8191) throw java.lang.IllegalArgumentException("Can't have more than 8191 sprites per batch: $size")
+        if (size > 8191) throw IllegalArgumentException("Can't have more than 8191 sprites per batch: $size")
         val vertexDataType: VertexDataType = if (Gdx.gl30 != null) VertexDataType.VertexBufferObjectWithVAO else defaultVertexDataType
         mesh = Mesh(vertexDataType, false, size * 4, size * 6,
             VertexAttribute(Usage.Position, 2, ShaderProgram.POSITION_ATTRIBUTE),

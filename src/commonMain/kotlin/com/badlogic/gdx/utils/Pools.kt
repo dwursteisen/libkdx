@@ -74,7 +74,7 @@ object Pools {
      * Frees an object from the [pool][.get].
      */
     fun free(`object`: Any?) {
-        if (`object` == null) throw java.lang.IllegalArgumentException("Object cannot be null.")
+        if (`object` == null) throw IllegalArgumentException("Object cannot be null.")
         val pool = typePools[`object`.javaClass] ?: return
         // Ignore freeing an object that was never retained.
         pool.free(`object`)
@@ -94,7 +94,7 @@ object Pools {
      * @param samePool If true, objects don't need to be from the same pool but the pool must be looked up for each object.
      */
     fun freeAll(objects: Array?, samePool: Boolean) {
-        if (objects == null) throw java.lang.IllegalArgumentException("Objects cannot be null.")
+        if (objects == null) throw IllegalArgumentException("Objects cannot be null.")
         var pool: Pool<*>? = null
         var i = 0
         val n: Int = objects.size

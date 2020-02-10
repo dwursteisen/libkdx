@@ -15,11 +15,6 @@
  */
 package com.badlogic.gdx
 
-import com.badlogic.gdx.Net.HttpResponseListener
-import com.badlogic.gdx.Net.Protocol
-import java.util.HashMap
-import kotlin.jvm.Throws
-
 /** A LifecycleListener can be added to an [Application] via [Application.addLifecycleListener]. It
  * will receive notification of pause, resume and dispose events. This is mainly meant to be used by extensions that need to
  * manage resources based on the life-cycle. Normal, application level development should rely on the [ApplicationListener]

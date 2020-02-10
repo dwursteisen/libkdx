@@ -94,7 +94,7 @@ class Method internal constructor(method: java.lang.reflect.Method) {
     operator fun invoke(obj: Any?, vararg args: Any?): Any {
         return try {
             method.invoke(obj, *args)
-        } catch (e: java.lang.IllegalArgumentException) {
+        } catch (e: IllegalArgumentException) {
             throw com.badlogic.gdx.utils.reflect.ReflectionException("Illegal argument(s) supplied to method: $name", e)
         } catch (e: IllegalAccessException) {
             throw com.badlogic.gdx.utils.reflect.ReflectionException("Illegal access to method: $name", e)

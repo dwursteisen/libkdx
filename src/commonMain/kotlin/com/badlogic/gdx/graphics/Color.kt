@@ -390,7 +390,7 @@ class Color {
      * @return HSV components for chaining.
      */
     fun toHsv(hsv: FloatArray): FloatArray {
-        val max: Float = java.lang.Math.max(java.lang.Math.max(r, g), b)
+        val max: Float = max(max(r, g), b)
         val min: Float = java.lang.Math.min(java.lang.Math.min(r, g), b)
         val range = max - min
         if (range == 0f) {

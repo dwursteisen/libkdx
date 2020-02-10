@@ -70,7 +70,7 @@ class SnapshotArray<T> : Array<T> {
      * Releases the guarantee that the array returned by [.begin] won't be modified.
      */
     fun end() {
-        snapshots = java.lang.Math.max(0, snapshots - 1)
+        snapshots = max(0, snapshots - 1)
         if (snapshot == null) return
         if (snapshot != items && snapshots == 0) {
             // The backing array was copied, keep around the old array.

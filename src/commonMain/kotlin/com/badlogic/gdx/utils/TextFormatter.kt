@@ -137,19 +137,19 @@ internal class TextFormatter(locale: Locale?, useMessageFormat: Boolean) {
                 }
             } else { // processing placeholder part
                 placeholder = if (ch == '}') {
-                    if (placeholder >= args.size) throw java.lang.IllegalArgumentException("Argument index out of bounds: $placeholder")
-                    if (pattern[i - 1] == '{') throw java.lang.IllegalArgumentException("Missing argument index after a left curly brace")
+                    if (placeholder >= args.size) throw IllegalArgumentException("Argument index out of bounds: $placeholder")
+                    if (pattern[i - 1] == '{') throw IllegalArgumentException("Missing argument index after a left curly brace")
                     if (args[placeholder] == null) buffer.append("null") // append null argument
                     else buffer.append(args[placeholder].toString()) // append actual argument
                     -1 // switch to constant part
                 } else {
-                    if (ch < '0' || ch > '9') throw java.lang.IllegalArgumentException("Unexpected '$ch' while parsing argument index")
+                    if (ch < '0' || ch > '9') throw IllegalArgumentException("Unexpected '$ch' while parsing argument index")
                     placeholder * 10 + (ch - '0')
                 }
             }
             ++i
         }
-        if (placeholder >= 0) throw java.lang.IllegalArgumentException("Unmatched braces in the pattern.")
+        if (placeholder >= 0) throw IllegalArgumentException("Unmatched braces in the pattern.")
         return if (changed) buffer.toString() else pattern
     }
 

@@ -12,7 +12,7 @@ class ArraySelection<T>(private val array: Array<T>) : Selection<T>() {
     var rangeSelect = true
     private var rangeStart: T? = null
     fun choose(item: T?) {
-        if (item == null) throw java.lang.IllegalArgumentException("item cannot be null.")
+        if (item == null) throw IllegalArgumentException("item cannot be null.")
         if (isDisabled) return
         if (!rangeSelect || !multiple) {
             super.choose(item)

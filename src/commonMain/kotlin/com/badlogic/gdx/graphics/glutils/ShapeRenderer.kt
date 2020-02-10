@@ -748,8 +748,8 @@ class ShapeRenderer @JvmOverloads constructor(maxVertices: Int = 5000, defaultSh
     /** Draws an arc using [ShapeType.Line] or [ShapeType.Filled].  */
     /** Calls [.arc] by estimating the number of segments needed for a smooth arc.  */
     @JvmOverloads
-    fun arc(x: Float, y: Float, radius: Float, start: Float, degrees: Float, segments: Int = java.lang.Math.max(1, (6 * java.lang.Math.cbrt(radius.toDouble()) as Float * (degrees / 360.0f)).toInt())) {
-        if (segments <= 0) throw java.lang.IllegalArgumentException("segments must be > 0.")
+    fun arc(x: Float, y: Float, radius: Float, start: Float, degrees: Float, segments: Int = max(1, (6 * java.lang.Math.cbrt(radius.toDouble()) as Float * (degrees / 360.0f)).toInt())) {
+        if (segments <= 0) throw IllegalArgumentException("segments must be > 0.")
         val colorBits: Float = color.toFloatBits()
         val theta: Float = 2 * com.badlogic.gdx.math.MathUtils.PI * (degrees / 360.0f) / segments
         val cos: Float = com.badlogic.gdx.math.MathUtils.cos(theta)
@@ -800,9 +800,9 @@ class ShapeRenderer @JvmOverloads constructor(maxVertices: Int = 5000, defaultSh
     /** Draws a circle using [ShapeType.Line] or [ShapeType.Filled].  */
     /** Calls [.circle] by estimating the number of segments needed for a smooth circle.  */
     @JvmOverloads
-    fun circle(x: Float, y: Float, radius: Float, segments: Int = java.lang.Math.max(1, (6 * java.lang.Math.cbrt(radius.toDouble()) as Float).toInt())) {
+    fun circle(x: Float, y: Float, radius: Float, segments: Int = max(1, (6 * java.lang.Math.cbrt(radius.toDouble()) as Float).toInt())) {
         var segments = segments
-        if (segments <= 0) throw java.lang.IllegalArgumentException("segments must be > 0.")
+        if (segments <= 0) throw IllegalArgumentException("segments must be > 0.")
         val colorBits: Float = color.toFloatBits()
         val angle: Float = 2 * com.badlogic.gdx.math.MathUtils.PI / segments
         val cos: Float = com.badlogic.gdx.math.MathUtils.cos(angle)
@@ -852,8 +852,8 @@ class ShapeRenderer @JvmOverloads constructor(maxVertices: Int = 5000, defaultSh
     /** Draws an ellipse using [ShapeType.Line] or [ShapeType.Filled].  */
     /** Calls [.ellipse] by estimating the number of segments needed for a smooth ellipse.  */
     @JvmOverloads
-    fun ellipse(x: Float, y: Float, width: Float, height: Float, segments: Int = java.lang.Math.max(1, (12 * java.lang.Math.cbrt(java.lang.Math.max(width * 0.5f, height * 0.5f).toDouble()) as Float).toInt())) {
-        if (segments <= 0) throw java.lang.IllegalArgumentException("segments must be > 0.")
+    fun ellipse(x: Float, y: Float, width: Float, height: Float, segments: Int = max(1, (12 * java.lang.Math.cbrt(max(width * 0.5f, height * 0.5f).toDouble()) as Float).toInt())) {
+        if (segments <= 0) throw IllegalArgumentException("segments must be > 0.")
         check(ShapeType.Line, ShapeType.Filled, segments * 3)
         val colorBits: Float = color.toFloatBits()
         val angle: Float = 2 * com.badlogic.gdx.math.MathUtils.PI / segments
@@ -882,9 +882,9 @@ class ShapeRenderer @JvmOverloads constructor(maxVertices: Int = 5000, defaultSh
     /** Draws an ellipse using [ShapeType.Line] or [ShapeType.Filled].  */
     /** Calls [.ellipse] by estimating the number of segments needed for a smooth ellipse.  */
     @JvmOverloads
-    fun ellipse(x: Float, y: Float, width: Float, height: Float, rotation: Float, segments: Int = java.lang.Math.max(1, (12 * java.lang.Math.cbrt(java.lang.Math.max(width * 0.5f, height * 0.5f).toDouble()) as Float).toInt())) {
+    fun ellipse(x: Float, y: Float, width: Float, height: Float, rotation: Float, segments: Int = max(1, (12 * java.lang.Math.cbrt(max(width * 0.5f, height * 0.5f).toDouble()) as Float).toInt())) {
         var rotation = rotation
-        if (segments <= 0) throw java.lang.IllegalArgumentException("segments must be > 0.")
+        if (segments <= 0) throw IllegalArgumentException("segments must be > 0.")
         check(ShapeType.Line, ShapeType.Filled, segments * 3)
         val colorBits: Float = color.toFloatBits()
         val angle: Float = 2 * com.badlogic.gdx.math.MathUtils.PI / segments
@@ -921,9 +921,9 @@ class ShapeRenderer @JvmOverloads constructor(maxVertices: Int = 5000, defaultSh
     /** Calls [.cone] by estimating the number of segments needed for a smooth
      * circular base.  */
     @JvmOverloads
-    fun cone(x: Float, y: Float, z: Float, radius: Float, height: Float, segments: Int = java.lang.Math.max(1, (4 * java.lang.Math.sqrt(radius.toDouble()) as Float).toInt())) {
+    fun cone(x: Float, y: Float, z: Float, radius: Float, height: Float, segments: Int = max(1, (4 * java.lang.Math.sqrt(radius.toDouble()) as Float).toInt())) {
         var segments = segments
-        if (segments <= 0) throw java.lang.IllegalArgumentException("segments must be > 0.")
+        if (segments <= 0) throw IllegalArgumentException("segments must be > 0.")
         check(ShapeType.Line, ShapeType.Filled, segments * 4 + 2)
         val colorBits: Float = color.toFloatBits()
         val angle: Float = 2 * com.badlogic.gdx.math.MathUtils.PI / segments
@@ -994,8 +994,8 @@ class ShapeRenderer @JvmOverloads constructor(maxVertices: Int = 5000, defaultSh
      */
     @JvmOverloads
     fun polygon(vertices: FloatArray?, offset: Int = 0, count: Int = vertices!!.size) {
-        if (count < 6) throw java.lang.IllegalArgumentException("Polygons must contain at least 3 points.")
-        if (count % 2 != 0) throw java.lang.IllegalArgumentException("Polygons must have an even number of vertices.")
+        if (count < 6) throw IllegalArgumentException("Polygons must contain at least 3 points.")
+        if (count % 2 != 0) throw IllegalArgumentException("Polygons must have an even number of vertices.")
         check(ShapeType.Line, null, count)
         val colorBits: Float = color.toFloatBits()
         val firstX = vertices!![0]
@@ -1026,8 +1026,8 @@ class ShapeRenderer @JvmOverloads constructor(maxVertices: Int = 5000, defaultSh
      */
     @JvmOverloads
     fun polyline(vertices: FloatArray?, offset: Int = 0, count: Int = vertices!!.size) {
-        if (count < 4) throw java.lang.IllegalArgumentException("Polylines must contain at least 2 points.")
-        if (count % 2 != 0) throw java.lang.IllegalArgumentException("Polylines must have an even number of vertices.")
+        if (count < 4) throw IllegalArgumentException("Polylines must contain at least 2 points.")
+        if (count % 2 != 0) throw IllegalArgumentException("Polylines must have an even number of vertices.")
         check(ShapeType.Line, null, count)
         val colorBits: Float = color.toFloatBits()
         var i = offset

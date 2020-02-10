@@ -51,7 +51,7 @@ class Constructor internal constructor(constructor: java.lang.reflect.Constructo
     fun newInstance(vararg args: Any?): Any {
         return try {
             constructor.newInstance(*args)
-        } catch (e: java.lang.IllegalArgumentException) {
+        } catch (e: IllegalArgumentException) {
             throw com.badlogic.gdx.utils.reflect.ReflectionException("Illegal argument(s) supplied to constructor for class: " + declaringClass.getName(),
                 e)
         } catch (e: InstantiationException) {

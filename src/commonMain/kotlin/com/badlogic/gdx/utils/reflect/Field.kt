@@ -137,7 +137,7 @@ class Field internal constructor(field: java.lang.reflect.Field) {
     operator fun get(obj: Any?): Any {
         return try {
             field.get(obj)
-        } catch (e: java.lang.IllegalArgumentException) {
+        } catch (e: IllegalArgumentException) {
             throw com.badlogic.gdx.utils.reflect.ReflectionException("Object is not an instance of $declaringClass", e)
         } catch (e: IllegalAccessException) {
             throw com.badlogic.gdx.utils.reflect.ReflectionException("Illegal access to field: $name", e)
@@ -149,7 +149,7 @@ class Field internal constructor(field: java.lang.reflect.Field) {
     operator fun set(obj: Any?, value: Any?) {
         try {
             field.set(obj, value)
-        } catch (e: java.lang.IllegalArgumentException) {
+        } catch (e: IllegalArgumentException) {
             throw com.badlogic.gdx.utils.reflect.ReflectionException("Argument not valid for field: $name", e)
         } catch (e: IllegalAccessException) {
             throw com.badlogic.gdx.utils.reflect.ReflectionException("Illegal access to field: $name", e)

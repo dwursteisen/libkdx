@@ -144,13 +144,13 @@ abstract class Interpolation {
         val heights: FloatArray
 
         constructor(widths: FloatArray, heights: FloatArray) {
-            if (widths.size != heights.size) throw java.lang.IllegalArgumentException("Must be the same number of widths and heights.")
+            if (widths.size != heights.size) throw IllegalArgumentException("Must be the same number of widths and heights.")
             this.widths = widths
             this.heights = heights
         }
 
         constructor(bounces: Int) {
-            if (bounces < 2 || bounces > 5) throw java.lang.IllegalArgumentException("bounces cannot be < 2 or > 5: $bounces")
+            if (bounces < 2 || bounces > 5) throw IllegalArgumentException("bounces cannot be < 2 or > 5: $bounces")
             widths = FloatArray(bounces)
             heights = FloatArray(bounces)
             heights[0] = 1

@@ -218,7 +218,7 @@ class ShaderProgram(vertexShader: String?, fragmentShader: String?) : com.badlog
         if (uniforms.get(name, -2).also({ location = it }) == -2) {
             location = gl.glGetUniformLocation(program, name)
             if (location == -1 && pedantic) {
-                if (isCompiled) throw java.lang.IllegalArgumentException("no uniform with name '$name' in shader")
+                if (isCompiled) throw IllegalArgumentException("no uniform with name '$name' in shader")
                 throw IllegalStateException("An attempted fetch uniform from uncompiled shader \n" + getLog())
             }
             uniforms.put(name, location)
@@ -900,8 +900,8 @@ class ShaderProgram(vertexShader: String?, fragmentShader: String?) : com.badlog
     init {
         var vertexShader = vertexShader
         var fragmentShader = fragmentShader
-        if (vertexShader == null) throw java.lang.IllegalArgumentException("vertex shader must not be null")
-        if (fragmentShader == null) throw java.lang.IllegalArgumentException("fragment shader must not be null")
+        if (vertexShader == null) throw IllegalArgumentException("vertex shader must not be null")
+        if (fragmentShader == null) throw IllegalArgumentException("fragment shader must not be null")
         if (prependVertexCode != null && prependVertexCode!!.length > 0) vertexShader = prependVertexCode + vertexShader
         if (prependFragmentCode != null && prependFragmentCode!!.length > 0) fragmentShader = prependFragmentCode + fragmentShader
         vertexShaderSource = vertexShader
