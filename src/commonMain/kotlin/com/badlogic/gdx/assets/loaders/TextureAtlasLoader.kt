@@ -17,7 +17,7 @@ package com.badlogic.gdx.assets.loaders
 
 import com.badlogic.gdx.assets.AssetLoaderParameters
 import com.badlogic.gdx.assets.loaders.TextureAtlasLoader.TextureAtlasParameter
-import java.util.Locale
+
 
 /** [AssetLoader] to load [TextureAtlas] instances. Passing a [TextureAtlasParameter] to
  * [AssetManager.load] allows to specify whether the atlas regions should be flipped

@@ -15,30 +15,19 @@
  */
 package com.badlogic.gdx.assets.loaders.resolvers
 
-import java.util.Locale
+import com.badlogic.gdx.assets.loaders.FileHandleResolver
+import com.badlogic.gdx.files.FileHandle
 
 /** [FileHandleResolver] that adds a prefix to the filename before passing it to the base resolver. Can be used e.g. to use a
  * given subfolder from the base resolver. The prefix is added as is, you have to include any trailing '/' character if needed.
  * @author Xoppa
  */
-class PrefixFileHandleResolver(baseResolver: com.badlogic.gdx.assets.loaders.FileHandleResolver?, prefix: String?) : com.badlogic.gdx.assets.loaders.FileHandleResolver {
+class PrefixFileHandleResolver(
+    var baseResolver: FileHandleResolver,
+    private val prefix: String
+) : FileHandleResolver {
 
-    var prefix: String?
-    private var baseResolver: com.badlogic.gdx.assets.loaders.FileHandleResolver?
-    fun setBaseResolver(baseResolver: com.badlogic.gdx.assets.loaders.FileHandleResolver?) {
-        this.baseResolver = baseResolver
-    }
-
-    fun getBaseResolver(): com.badlogic.gdx.assets.loaders.FileHandleResolver? {
-        return baseResolver
-    }
-
-    override fun resolve(fileName: String?): com.badlogic.gdx.files.FileHandle? {
-        return baseResolver!!.resolve(prefix + fileName)
-    }
-
-    init {
-        this.baseResolver = baseResolver
-        this.prefix = prefix
+    override fun resolve(fileName: String): FileHandle {
+        return baseResolver.resolve(prefix + fileName)
     }
 }

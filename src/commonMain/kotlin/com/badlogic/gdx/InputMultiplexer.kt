@@ -22,8 +22,7 @@ import com.badlogic.gdx.Input.TextInputListener
 import com.badlogic.gdx.InputEventQueue
 import com.badlogic.gdx.utils.Array
 import com.badlogic.gdx.utils.SnapshotArray
-import java.lang.NullPointerException
-import java.lang.RuntimeException
+
 
 /** An [InputProcessor] that delegates to an ordered list of other InputProcessors. Delegation for an event stops if a
  * processor returns true, which indicates that the event was handled.

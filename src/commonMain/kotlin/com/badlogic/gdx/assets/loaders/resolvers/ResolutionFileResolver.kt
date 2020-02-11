@@ -15,8 +15,10 @@
  */
 package com.badlogic.gdx.assets.loaders.resolvers
 
+import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.assets.loaders.FileHandleResolver
 import com.badlogic.gdx.assets.loaders.resolvers.ResolutionFileResolver.Resolution
-import java.util.Locale
+import com.badlogic.gdx.files.FileHandle
 
 /** This [FileHandleResolver] uses a given list of [Resolution]s to determine the best match based on the current
  * Screen size. An example of how this resolver works:
@@ -50,40 +52,53 @@ import java.util.Locale
  * The files are ultimately resolved via the given {[.baseResolver]. In case the first version cannot be resolved, the
  * fallback will try to search for the file without the resolution folder.
  *   */
-class ResolutionFileResolver(baseResolver: com.badlogic.gdx.assets.loaders.FileHandleResolver?, vararg descriptors: Resolution?) : com.badlogic.gdx.assets.loaders.FileHandleResolver {
+open class ResolutionFileResolver(
+    protected val baseResolver: FileHandleResolver,
+    protected vararg val descriptors: Resolution
+) : FileHandleResolver {
 
-    class Resolution
     /** Constructs a `Resolution`.
      * @param portraitWidth This resolution's width.
      * @param portraitHeight This resolution's height.
      * @param folder The name of the folder, where the assets which fit this resolution, are located.
-     */(val portraitWidth: Int, val portraitHeight: Int,
+     */
+    class Resolution(
+        val portraitWidth: Int,
+        val portraitHeight: Int,
         /** The name of the folder, where the assets which fit this resolution, are located.  */
-        val folder: String?)
+        val folder: String
+    )
 
-    protected val baseResolver: com.badlogic.gdx.assets.loaders.FileHandleResolver?
-    protected val descriptors: Array<Resolution?>?
-    override fun resolve(fileName: String?): com.badlogic.gdx.files.FileHandle? {
+
+    /** Creates a `ResolutionFileResolver` based on a given [FileHandleResolver] and a list of [Resolution]s.
+     * @param baseResolver The [FileHandleResolver] that will ultimately used to resolve the file.
+     * @param descriptors A list of [Resolution]s. At least one has to be supplied.
+     */
+    init {
+        require(descriptors.isNotEmpty())  { "At least one Resolution needs to be supplied." }
+    }
+
+    override fun resolve(fileName: String): FileHandle {
         val bestResolution = choose(*descriptors!!)
-        val originalHandle: com.badlogic.gdx.files.FileHandle = com.badlogic.gdx.files.FileHandle(fileName)
-        var handle: com.badlogic.gdx.files.FileHandle = baseResolver!!.resolve(resolve(originalHandle, bestResolution!!.folder))
+        val originalHandle: FileHandle = FileHandle(fileName)
+        var handle: FileHandle = baseResolver!!.resolve(resolve(originalHandle, bestResolution!!.folder))
         if (!handle.exists()) handle = baseResolver!!.resolve(fileName)
         return handle
     }
 
-    protected fun resolve(originalHandle: com.badlogic.gdx.files.FileHandle?, suffix: String?): String? {
+    protected fun resolve(originalHandle: FileHandle, suffix: String): String {
         var parentString = ""
-        val parent: com.badlogic.gdx.files.FileHandle = originalHandle.parent()
-        if (parent != null && parent.name() != "") {
-            parentString = parent.toString() + "/"
+        val parent: FileHandle = originalHandle.parent()
+        if (parent.name() != "") {
+            parentString = "$parent/"
         }
         return parentString + suffix + "/" + originalHandle.name()
     }
 
     companion object {
         fun choose(vararg descriptors: Resolution?): Resolution? {
-            val w: Int = com.badlogic.gdx.Gdx.graphics.getWidth()
-            val h: Int = com.badlogic.gdx.Gdx.graphics.getHeight()
+            val w: Int = Gdx.graphics.width
+            val h: Int = Gdx.graphics.height
             // Prefer the shortest side.
             var best = descriptors[0]
             if (w < h) {
@@ -105,15 +120,5 @@ class ResolutionFileResolver(baseResolver: com.badlogic.gdx.assets.loaders.FileH
             }
             return best
         }
-    }
-
-    /** Creates a `ResolutionFileResolver` based on a given [FileHandleResolver] and a list of [Resolution]s.
-     * @param baseResolver The [FileHandleResolver] that will ultimately used to resolve the file.
-     * @param descriptors A list of [Resolution]s. At least one has to be supplied.
-     */
-    init {
-        if (descriptors.size == 0) throw IllegalArgumentException("At least one Resolution needs to be supplied.")
-        this.baseResolver = baseResolver
-        this.descriptors = descriptors
     }
 }

@@ -15,6 +15,17 @@
  */
 package com.badlogic.gdx.graphics.g3d
 
+import com.badlogic.gdx.graphics.Mesh
+import com.badlogic.gdx.graphics.g3d.model.Animation
+import com.badlogic.gdx.graphics.g3d.model.MeshPart
+import com.badlogic.gdx.graphics.g3d.model.Node
+import com.badlogic.gdx.graphics.g3d.model.data.ModelAnimation
+import com.badlogic.gdx.graphics.g3d.model.data.ModelData
+import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial
+import com.badlogic.gdx.graphics.g3d.utils.TextureProvider
+import com.badlogic.gdx.graphics.g3d.utils.TextureProvider.FileTextureProvider
+import com.badlogic.gdx.utils.Disposable
+import com.badlogic.gdx.utils.Array
 /**
  * A model represents a 3D assets. It stores a hierarchy of nodes. A node has a transform and optionally a graphical part in form
  * of a [MeshPart] and [Material]. Mesh parts reference subsets of vertices in one of the meshes of the model.
@@ -298,7 +309,7 @@ class Model : Disposable {
     /**
      * @return the [Disposable] objects that will be disposed when the [.dispose] method is called.
      */
-    val managedDisposables: Iterable<Any>
+    val managedDisposables: MutableIterator<Any>
         get() = disposables
 
     fun dispose() {

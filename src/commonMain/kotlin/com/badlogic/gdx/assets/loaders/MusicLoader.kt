@@ -16,36 +16,53 @@
 package com.badlogic.gdx.assets.loaders
 
 import com.badlogic.gdx.assets.AssetLoaderParameters
-import java.util.Locale
+import com.badlogic.gdx.assets.AssetManager
+import com.badlogic.gdx.audio.Music
+import com.badlogic.gdx.files.FileHandle
 
 /** [AssetLoader] for [Music] instances. The Music instance is loaded synchronously.
  * @author mzechner
  */
-class MusicLoader(resolver: com.badlogic.gdx.assets.loaders.FileHandleResolver?) : com.badlogic.gdx.assets.loaders.AsynchronousAssetLoader<com.badlogic.gdx.audio.Music?, MusicLoader.MusicParameter?>(resolver) {
+class MusicLoader(resolver: FileHandleResolver) : AsynchronousAssetLoader<Music?, MusicLoader.MusicParameter>(resolver) {
 
-    private var music: com.badlogic.gdx.audio.Music? = null
+    private var music: Music? = null
+
     /** Returns the [Music] instance currently loaded by this
      * [MusicLoader].
      *
      * @return the currently loaded [Music], otherwise `null` if
      * no [Music] has been loaded yet.
      */
-    protected val loadedMusic: com.badlogic.gdx.audio.Music?
+    protected val loadedMusic: Music?
         protected get() = music
 
-    override fun loadAsync(manager: com.badlogic.gdx.assets.AssetManager?, fileName: String?, file: com.badlogic.gdx.files.FileHandle?, parameter: MusicParameter?) {
+    override fun loadAsync(
+        manager: AssetManager,
+        fileName: String,
+        file: FileHandle,
+        parameter: MusicParameter?
+    ) {
         music = com.badlogic.gdx.Gdx.audio.newMusic(file)
     }
 
-    override fun loadSync(manager: com.badlogic.gdx.assets.AssetManager?, fileName: String?, file: com.badlogic.gdx.files.FileHandle?, parameter: MusicParameter?): com.badlogic.gdx.audio.Music? {
-        val music: com.badlogic.gdx.audio.Music? = music
+    override fun loadSync(
+        manager: AssetManager,
+        fileName: String,
+        file: FileHandle,
+        parameter: MusicParameter?
+    ): Music? {
+        val music: Music? = music
         this.music = null
         return music
     }
 
-    override fun getDependencies(fileName: String?, file: com.badlogic.gdx.files.FileHandle?, parameter: MusicParameter?): com.badlogic.gdx.utils.Array<com.badlogic.gdx.assets.AssetDescriptor<*>?>? {
+    override fun getDependencies(
+        fileName: String,
+        file: FileHandle,
+        parameter: MusicParameter?
+    ): com.badlogic.gdx.utils.Array<com.badlogic.gdx.assets.AssetDescriptor<*>>? {
         return null
     }
 
-    class MusicParameter : AssetLoaderParameters<com.badlogic.gdx.audio.Music?>()
+    class MusicParameter : AssetLoaderParameters<Music?>()
 }

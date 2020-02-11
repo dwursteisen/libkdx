@@ -16,7 +16,7 @@
 package com.badlogic.gdx.assets.loaders
 
 import com.badlogic.gdx.assets.AssetLoaderParameters
-import java.util.Locale
+
 
 /** [AssetLoader] for [Pixmap] instances. The Pixmap is loaded asynchronously.
  * @author mzechner

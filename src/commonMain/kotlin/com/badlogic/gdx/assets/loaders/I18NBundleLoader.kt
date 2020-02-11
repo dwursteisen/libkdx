@@ -16,7 +16,7 @@
 package com.badlogic.gdx.assets.loaders
 
 import com.badlogic.gdx.assets.AssetLoaderParameters
-import java.util.Locale
+import com.badlogic.gdx.files.FileHandle
 
 /** [AssetLoader] for [I18NBundle] instances. The I18NBundle is loaded asynchronously.
  *
@@ -37,10 +37,16 @@ import java.util.Locale
  *
  * @author davebaol
  */
-class I18NBundleLoader(resolver: com.badlogic.gdx.assets.loaders.FileHandleResolver?) : com.badlogic.gdx.assets.loaders.AsynchronousAssetLoader<com.badlogic.gdx.utils.I18NBundle?, I18NBundleLoader.I18NBundleParameter?>(resolver) {
+class I18NBundleLoader(resolver: FileHandleResolver?) : AsynchronousAssetLoader<com.badlogic.gdx.utils.I18NBundle, I18NBundleLoader.I18NBundleParameter>(resolver) {
 
     var bundle: com.badlogic.gdx.utils.I18NBundle? = null
-    override fun loadAsync(manager: com.badlogic.gdx.assets.AssetManager?, fileName: String?, file: com.badlogic.gdx.files.FileHandle?, parameter: I18NBundleParameter?) {
+
+    override fun loadAsync(
+        manager: com.badlogic.gdx.assets.AssetManager?,
+        fileName: String,
+        file: FileHandle,
+        parameter: I18NBundleParameter?
+    ) {
         bundle = null
         val locale: Locale
         val encoding: String?
@@ -58,13 +64,22 @@ class I18NBundleLoader(resolver: com.badlogic.gdx.assets.loaders.FileHandleResol
         }
     }
 
-    override fun loadSync(manager: com.badlogic.gdx.assets.AssetManager?, fileName: String?, file: com.badlogic.gdx.files.FileHandle?, parameter: I18NBundleParameter?): com.badlogic.gdx.utils.I18NBundle? {
+    override fun loadSync(
+        manager: com.badlogic.gdx.assets.AssetManager,
+        fileName: String,
+        file: FileHandle,
+        parameter: I18NBundleParameter?
+    ): com.badlogic.gdx.utils.I18NBundle {
         val bundle: com.badlogic.gdx.utils.I18NBundle? = bundle
         this.bundle = null
         return bundle
     }
 
-    override fun getDependencies(fileName: String?, file: com.badlogic.gdx.files.FileHandle?, parameter: I18NBundleParameter?): com.badlogic.gdx.utils.Array<com.badlogic.gdx.assets.AssetDescriptor<*>?>? {
+    override fun getDependencies(
+        fileName: String,
+        file: FileHandle,
+        parameter: I18NBundleParameter?
+    ): com.badlogic.gdx.utils.Array<com.badlogic.gdx.assets.AssetDescriptor<*>>? {
         return null
     }
 

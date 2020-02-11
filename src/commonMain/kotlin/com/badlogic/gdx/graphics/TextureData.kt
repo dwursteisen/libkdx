@@ -101,7 +101,7 @@ interface TextureData {
     /**
      * @return the [Format] of the pixel data
      */
-    val format: Pixmap.Format?
+    val format: Pixmap.Format
 
     /**
      * @return whether to generate mipmaps or not.

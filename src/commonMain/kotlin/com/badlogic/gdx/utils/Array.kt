@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.Base64Coder
 import com.badlogic.gdx.utils.Base64Coder.CharMap
 import com.badlogic.gdx.utils.reflect.ArrayReflection
 import kotlin.math.max
+import kotlin.reflect.KClass
 
 /**
  * A resizable, ordered or unordered array of objects. If unordered, this class avoids a memory copy when removing elements (the
@@ -64,7 +65,7 @@ open class Array<T> : Iterable<T> {
      * memory copy.
      * @param capacity Any elements added beyond this will cause the backing array to be grown.
      */
-    constructor(ordered: Boolean, capacity: Int, arrayType: java.lang.Class?) {
+    constructor(ordered: Boolean, capacity: Int, arrayType: KClass<Any>) {
         this.ordered = ordered
         items = ArrayReflection.newInstance(arrayType, capacity)
     }
@@ -72,14 +73,14 @@ open class Array<T> : Iterable<T> {
     /**
      * Creates an ordered array with [.items] of the specified type and a capacity of 16.
      */
-    constructor(arrayType: java.lang.Class?) : this(true, 16, arrayType) {}
+    constructor(arrayType: KClass) : this(true, 16, arrayType) {}
 
     /**
      * Creates a new array containing the elements in the specified array. The new array will have the same type of backing array
      * and will be ordered if the specified array is ordered. The capacity is set to the number of elements, so any subsequent
      * elements added will cause the backing array to be grown.
      */
-    constructor(array: Array<out T>) : this(array.ordered, array.size, array.items.javaClass.getComponentType()) {
+    constructor(array: Array<out T>) : this(array.ordered, array.size, array.items[0]::class) {
         size = array.size
         java.lang.System.arraycopy(array.items, 0, items, 0, size)
     }

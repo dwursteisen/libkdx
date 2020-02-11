@@ -56,22 +56,22 @@ interface Files {
      * @throws GdxRuntimeException if the type is classpath or internal and the file does not exist.
      * @see FileType
      */
-    fun getFileHandle(path: String?, type: FileType?): FileHandle?
+    fun getFileHandle(path: String, type: FileType): FileHandle
 
     /** Convenience method that returns a [FileType.Classpath] file handle.  */
-    fun classpath(path: String?): FileHandle?
+    fun classpath(path: String): FileHandle
 
     /** Convenience method that returns a [FileType.Internal] file handle.  */
-    fun internal(path: String?): FileHandle?
+    fun internal(path: String): FileHandle
 
     /** Convenience method that returns a [FileType.External] file handle.  */
-    fun external(path: String?): FileHandle?
+    fun external(path: String): FileHandle
 
     /** Convenience method that returns a [FileType.Absolute] file handle.  */
-    fun absolute(path: String?): FileHandle?
+    fun absolute(path: String): FileHandle
 
     /** Convenience method that returns a [FileType.Local] file handle.  */
-    fun local(path: String?): FileHandle?
+    fun local(path: String): FileHandle
 
     /** Returns the external storage path directory. This is the SD card on Android and the home directory of the current user on
      * the desktop.  */

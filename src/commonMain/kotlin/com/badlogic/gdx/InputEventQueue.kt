@@ -21,8 +21,7 @@ import com.badlogic.gdx.Input.Peripheral
 import com.badlogic.gdx.Input.TextInputListener
 import com.badlogic.gdx.utils.IntArray
 import com.badlogic.gdx.utils.TimeUtils
-import java.lang.NullPointerException
-import java.lang.RuntimeException
+
 
 /** Queues events that are later passed to the wrapped [InputProcessor].
  * @author Nathan Sweet

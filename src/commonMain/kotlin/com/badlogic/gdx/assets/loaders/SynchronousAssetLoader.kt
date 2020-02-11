@@ -16,7 +16,7 @@
 package com.badlogic.gdx.assets.loaders
 
 import com.badlogic.gdx.assets.AssetLoaderParameters
-import java.util.Locale
+
 
 abstract class SynchronousAssetLoader<T, P : AssetLoaderParameters<T?>?>(resolver: com.badlogic.gdx.assets.loaders.FileHandleResolver?) : com.badlogic.gdx.assets.loaders.AssetLoader<T?, P?>(resolver) {
     abstract fun load(assetManager: com.badlogic.gdx.assets.AssetManager?, fileName: String?, file: com.badlogic.gdx.files.FileHandle?, parameter: P?): T?

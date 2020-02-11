@@ -18,6 +18,7 @@ package com.badlogic.gdx.maps.objects
 import Texture.TextureFilter
 import com.badlogic.gdx.maps.ImageResolver
 import com.badlogic.gdx.maps.MapLayer
+import com.badlogic.gdx.maps.MapObject
 import com.badlogic.gdx.maps.MapProperties
 import com.badlogic.gdx.maps.tiled.AtlasTmxMapLoader.AtlasResolver
 import com.badlogic.gdx.maps.tiled.AtlasTmxMapLoader.AtlasResolver.AssetManagerAtlasResolver
@@ -29,6 +30,8 @@ import com.badlogic.gdx.maps.tiled.renderers.BatchTiledMapRenderer
 import com.badlogic.gdx.maps.tiled.renderers.OrthoCachedTiledMapRenderer
 import com.badlogic.gdx.maps.tiled.tiles.AnimatedTiledMapTile
 import com.badlogic.gdx.maps.tiled.tiles.StaticTiledMapTile
+import com.badlogic.gdx.math.Circle
+import kotlin.jvm.JvmOverloads
 import kotlin.jvm.Throws
 
 /**

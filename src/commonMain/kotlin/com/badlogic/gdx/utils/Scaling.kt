@@ -22,8 +22,7 @@ import com.badlogic.gdx.utils.Queue.QueueIterable
 import com.badlogic.gdx.utils.Queue.QueueIterator
 import com.badlogic.gdx.utils.ScreenUtils
 import java.lang.IndexOutOfBoundsException
-import java.lang.NullPointerException
-import java.lang.RuntimeException
+
 import kotlin.jvm.Throws
 
 /**

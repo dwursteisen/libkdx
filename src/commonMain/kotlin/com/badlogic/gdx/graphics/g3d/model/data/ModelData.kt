@@ -15,6 +15,7 @@
  */
 package com.badlogic.gdx.graphics.g3d.model.data
 
+import com.badlogic.gdx.utils.Array
 import kotlin.jvm.JvmField
 
 /** Returned by a [ModelLoader], contains meshes, materials, nodes and animations. OpenGL resources like textures or vertex
@@ -26,17 +27,17 @@ class ModelData {
     var id: String? = null
     val version: ShortArray? = ShortArray(2)
     @JvmField
-    val meshes: com.badlogic.gdx.utils.Array<com.badlogic.gdx.graphics.g3d.model.data.ModelMesh?>? = com.badlogic.gdx.utils.Array<com.badlogic.gdx.graphics.g3d.model.data.ModelMesh?>()
+    val meshes: Array<ModelMesh?> = Array()
     @JvmField
-    val materials: com.badlogic.gdx.utils.Array<com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial?>? = com.badlogic.gdx.utils.Array<com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial?>()
+    val materials: Array<ModelMaterial?> = Array()
     @JvmField
-    val nodes: com.badlogic.gdx.utils.Array<com.badlogic.gdx.graphics.g3d.model.data.ModelNode?>? = com.badlogic.gdx.utils.Array<com.badlogic.gdx.graphics.g3d.model.data.ModelNode?>()
+    val nodes: Array<ModelNode?> = Array()
     @JvmField
-    val animations: com.badlogic.gdx.utils.Array<com.badlogic.gdx.graphics.g3d.model.data.ModelAnimation?>? = com.badlogic.gdx.utils.Array<com.badlogic.gdx.graphics.g3d.model.data.ModelAnimation?>()
-    fun addMesh(mesh: com.badlogic.gdx.graphics.g3d.model.data.ModelMesh?) {
+    val animations: Array<ModelAnimation?> = Array()
+    fun addMesh(mesh: ModelMesh?) {
         for (other in meshes) {
             if (other!!.id == mesh!!.id) {
-                throw com.badlogic.gdx.utils.GdxRuntimeException("Mesh with id '" + other!!.id + "' already in model")
+                throw com.badlogic.gdx.utils.GdxRuntimeException("Mesh with id '" + other.id + "' already in model")
             }
         }
         meshes.add(mesh)

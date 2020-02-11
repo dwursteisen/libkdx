@@ -17,12 +17,12 @@ package com.badlogic.gdx.assets.loaders
 
 import com.badlogic.gdx.assets.AssetLoaderParameters
 import com.badlogic.gdx.assets.loaders.ParticleEffectLoader.ParticleEffectParameter
-import java.util.Locale
+
 
 /** [AssetLoader] to load [ParticleEffect] instances. Passing a [ParticleEffectParameter] to
  * [AssetManager.load] allows to specify an atlas file or an image directory to be
  * used for the effect's images. Per default images are loaded from the directory in which the effect file is found.  */
-class ParticleEffectLoader(resolver: com.badlogic.gdx.assets.loaders.FileHandleResolver?) : com.badlogic.gdx.assets.loaders.SynchronousAssetLoader<com.badlogic.gdx.graphics.g2d.ParticleEffect?, ParticleEffectParameter?>(resolver) {
+class ParticleEffectLoader(resolver: FileHandleResolver) : SynchronousAssetLoader<com.badlogic.gdx.graphics.g2d.ParticleEffect?, ParticleEffectParameter?>(resolver) {
 
     override fun load(am: com.badlogic.gdx.assets.AssetManager?, fileName: String?, file: com.badlogic.gdx.files.FileHandle?, param: ParticleEffectParameter?): com.badlogic.gdx.graphics.g2d.ParticleEffect? {
         val effect: com.badlogic.gdx.graphics.g2d.ParticleEffect = com.badlogic.gdx.graphics.g2d.ParticleEffect()

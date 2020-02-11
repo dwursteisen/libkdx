@@ -15,10 +15,11 @@
  */
 package com.badlogic.gdx.assets.loaders.resolvers
 
-import java.util.Locale
+import com.badlogic.gdx.assets.loaders.FileHandleResolver
+import com.badlogic.gdx.files.FileHandle
 
-class InternalFileHandleResolver : com.badlogic.gdx.assets.loaders.FileHandleResolver {
-    override fun resolve(fileName: String?): com.badlogic.gdx.files.FileHandle? {
+class InternalFileHandleResolver : FileHandleResolver {
+    override fun resolve(fileName: String): FileHandle {
         return com.badlogic.gdx.Gdx.files.internal(fileName)
     }
 }

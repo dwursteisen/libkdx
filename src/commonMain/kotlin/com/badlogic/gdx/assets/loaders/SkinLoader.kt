@@ -17,7 +17,7 @@ package com.badlogic.gdx.assets.loaders
 
 import com.badlogic.gdx.assets.AssetLoaderParameters
 import com.badlogic.gdx.assets.loaders.SkinLoader.SkinParameter
-import java.util.Locale
+
 
 /** [AssetLoader] for [Skin] instances. All [Texture] and [BitmapFont] instances will be loaded as
  * dependencies. Passing a [SkinParameter] allows the exact name of the texture associated with the skin to be specified.

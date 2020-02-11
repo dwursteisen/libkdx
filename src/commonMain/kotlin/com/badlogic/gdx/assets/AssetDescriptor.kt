@@ -17,6 +17,8 @@ package com.badlogic.gdx.assets
 
 import com.badlogic.gdx.files.FileHandle
 import kotlin.jvm.JvmField
+import kotlin.jvm.JvmOverloads
+import kotlin.reflect.KClass
 
 /** Describes an asset to be loaded by its filename, type and [AssetLoaderParameters]. Instances of this are used in
  * [AssetLoadingTask] to load the actual asset.
@@ -25,36 +27,33 @@ import kotlin.jvm.JvmField
 class AssetDescriptor<T> {
 
     @JvmField
-    val fileName: String?
+    val fileName: String
+
     @JvmField
-    val type: java.lang.Class<T?>?
+    val type: KClass<*>
+
     @JvmField
     val params: AssetLoaderParameters<*>?
+
     /** The resolved file. May be null if the fileName has not been resolved yet.  */
     @JvmField
     var file: FileHandle? = null
 
     @JvmOverloads
-    constructor(fileName: String?, assetType: java.lang.Class<T?>?, params: AssetLoaderParameters<T?>? = null) {
-        this.fileName = fileName!!.replace("\\\\".toRegex(), "/")
+    constructor(fileName: String, assetType: KClass<*>, params: AssetLoaderParameters<T>? = null) {
+        this.fileName = fileName.replace("\\\\".toRegex(), "/")
         type = assetType
         this.params = params
     }
     /** Creates an AssetDescriptor with an already resolved name.  */
     /** Creates an AssetDescriptor with an already resolved name.  */
     @JvmOverloads
-    constructor(file: FileHandle?, assetType: java.lang.Class<T?>?, params: AssetLoaderParameters<T?>? = null) {
-        fileName = file!!.path().replace("\\\\".toRegex(), "/")
+    constructor(file: FileHandle, assetType: KClass<*>, params: AssetLoaderParameters<T>? = null) {
+        fileName = file.path().replace("\\\\".toRegex(), "/")
         this.file = file
         type = assetType
         this.params = params
     }
 
-    override fun toString(): String {
-        val sb: java.lang.StringBuilder = java.lang.StringBuilder()
-        sb.append(fileName)
-        sb.append(", ")
-        sb.append(type.getName())
-        return sb.toString()
-    }
+    override fun toString(): String = "$fileName, ${type.simpleName}"
 }

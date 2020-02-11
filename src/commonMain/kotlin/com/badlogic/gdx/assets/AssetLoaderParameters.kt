@@ -16,6 +16,7 @@
 package com.badlogic.gdx.assets
 
 import kotlin.jvm.JvmField
+import kotlin.reflect.KClass
 
 open class AssetLoaderParameters<T> {
     /** Callback interface that will be invoked when the [AssetManager] loaded an asset.
@@ -23,7 +24,7 @@ open class AssetLoaderParameters<T> {
      */
     interface LoadedCallback {
 
-        fun finishedLoading(assetManager: com.badlogic.gdx.assets.AssetManager?, fileName: String?, type: java.lang.Class?)
+        fun finishedLoading(assetManager: AssetManager, fileName: String, type: KClass<Any>)
     }
 
     @JvmField

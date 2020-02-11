@@ -17,7 +17,7 @@ package com.badlogic.gdx.assets.loaders
 
 import com.badlogic.gdx.assets.AssetLoaderParameters
 import com.badlogic.gdx.assets.loaders.ShaderProgramLoader.ShaderProgramParameter
-import java.util.Locale
+
 
 /** [AssetLoader] for [ShaderProgram] instances loaded from text files. If the file suffix is ".vert", it is assumed
  * to be a vertex shader, and a fragment shader is found using the same file name with a ".frag" suffix. And vice versa if the

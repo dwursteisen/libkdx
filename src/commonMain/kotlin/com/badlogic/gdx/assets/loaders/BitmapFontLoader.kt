@@ -17,7 +17,7 @@ package com.badlogic.gdx.assets.loaders
 
 import com.badlogic.gdx.assets.AssetLoaderParameters
 import com.badlogic.gdx.assets.loaders.BitmapFontLoader.BitmapFontParameter
-import java.util.Locale
+
 
 /** [AssetLoader] for [BitmapFont] instances. Loads the font description file (.fnt) asynchronously, loads the
  * [Texture] containing the glyphs as a dependency. The [BitmapFontParameter] allows you to set things like texture

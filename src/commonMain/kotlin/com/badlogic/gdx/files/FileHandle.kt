@@ -51,7 +51,7 @@ open class FileHandle {
      * Do not use this constructor in case you write something cross-platform. Use the [Files] interface instead.
      * @param fileName the filename.
      */
-    constructor(fileName: String?) {
+    constructor(fileName: String) {
         file = java.io.File(fileName)
         type = com.badlogic.gdx.Files.FileType.Absolute
     }

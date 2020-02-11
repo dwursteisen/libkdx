@@ -16,7 +16,7 @@
 package com.badlogic.gdx.assets.loaders
 
 import com.badlogic.gdx.assets.AssetLoaderParameters
-import java.util.Locale
+import com.badlogic.gdx.files.FileHandle
 
 /** Base class for asynchronous [AssetLoader] instances. Such loaders try to load parts of an OpenGL resource, like the
  * Pixmap, on a separate thread to then load the actual resource on the thread the OpenGL context is active on.
@@ -25,7 +25,7 @@ import java.util.Locale
  * @param <T>
  * @param <P>
 </P></T> */
-abstract class AsynchronousAssetLoader<T, P : AssetLoaderParameters<T?>?>(resolver: com.badlogic.gdx.assets.loaders.FileHandleResolver?) : com.badlogic.gdx.assets.loaders.AssetLoader<T?, P?>(resolver) {
+abstract class AsynchronousAssetLoader<T, P : AssetLoaderParameters<T>>(resolver: FileHandleResolver) : AssetLoader<T, P>(resolver) {
 
     /** Loads the non-OpenGL part of the asset and injects any dependencies of the asset into the AssetManager.
      * @param manager
@@ -33,7 +33,12 @@ abstract class AsynchronousAssetLoader<T, P : AssetLoaderParameters<T?>?>(resolv
      * @param file the resolved file to load
      * @param parameter the parameters to use for loading the asset
      */
-    abstract fun loadAsync(manager: com.badlogic.gdx.assets.AssetManager?, fileName: String?, file: com.badlogic.gdx.files.FileHandle?, parameter: P?)
+    abstract fun loadAsync(
+        manager: com.badlogic.gdx.assets.AssetManager,
+        fileName: String,
+        file: FileHandle,
+        parameter: P?
+    )
 
     /** Loads the OpenGL part of the asset.
      * @param manager
@@ -41,5 +46,10 @@ abstract class AsynchronousAssetLoader<T, P : AssetLoaderParameters<T?>?>(resolv
      * @param file the resolved file to load
      * @param parameter
      */
-    abstract fun loadSync(manager: com.badlogic.gdx.assets.AssetManager?, fileName: String?, file: com.badlogic.gdx.files.FileHandle?, parameter: P?): T?
+    abstract fun loadSync(
+        manager: com.badlogic.gdx.assets.AssetManager,
+        fileName: String,
+        file: FileHandle,
+        parameter: P?
+    ): T?
 }

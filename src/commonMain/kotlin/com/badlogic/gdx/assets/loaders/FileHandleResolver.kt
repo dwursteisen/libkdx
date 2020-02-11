@@ -15,11 +15,13 @@
  */
 package com.badlogic.gdx.assets.loaders
 
+import com.badlogic.gdx.files.FileHandle
+
 /** Interface for classes the can map a file name to a [FileHandle]. Used to allow the [AssetManager] to load resources
  * from anywhere or implement caching strategies.
  * @author mzechner
  */
 interface FileHandleResolver {
 
-    fun resolve(fileName: String): com.badlogic.gdx.files.FileHandle?
+    fun resolve(fileName: String): FileHandle
 }
