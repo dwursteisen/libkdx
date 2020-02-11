@@ -43,7 +43,7 @@ import java.lang.RuntimeException
  * @author mzechner
  * @author Nathan Sweet
  */
-class Actor {
+open class Actor {
 
     private var stage: Stage? = null
     var parent: Group? = null

@@ -28,10 +28,10 @@ class Color {
     /**
      * the red, green, blue and alpha components
      */
-    var r = 0f
-    var g = 0f
-    var b = 0f
-    var a = 0f
+    var r: Float = 0f
+    var g: Float = 0f
+    var b: Float = 0f
+    var a: Float = 0f
 
     /**
      * Constructs a new Color with all components set to 0.

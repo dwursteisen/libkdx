@@ -87,7 +87,7 @@ abstract class TemporalAction : Action {
      * Called the first time [.act] is called. This is a good place to query the [actor&#39;s][.actor] starting
      * state.
      */
-    protected fun begin() {}
+    protected open fun begin() {}
 
     /**
      * Called the last time [.act] is called.
@@ -115,7 +115,7 @@ abstract class TemporalAction : Action {
         isComplete = false
     }
 
-    fun reset() {
+    open fun reset() {
         super.reset()
         isReverse = false
         interpolation = null

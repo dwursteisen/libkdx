@@ -15,10 +15,16 @@
  */
 package com.badlogic.gdx.scenes.scene2d
 
+import com.badlogic.gdx.graphics.g2d.Batch
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer
+import com.badlogic.gdx.math.Affine2
+import com.badlogic.gdx.math.Matrix4
+import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.scenes.scene2d.Actor
 import com.badlogic.gdx.scenes.scene2d.InputListener
 import com.badlogic.gdx.scenes.scene2d.Stage.TouchFocus
-import java.lang.RuntimeException
+import com.badlogic.gdx.scenes.scene2d.utils.Cullable
+import com.badlogic.gdx.utils.SnapshotArray
 
 /**
  * 2D scene graph node that may contain other actors.
@@ -30,12 +36,12 @@ import java.lang.RuntimeException
  * @author mzechner
  * @author Nathan Sweet
  */
-class Group : Actor(), Cullable {
+open class Group : Actor(), Cullable {
 
-    val children: SnapshotArray<Actor?>? = SnapshotArray(true, 4, Actor::class.java)
-    private val worldTransform: Affine2? = Affine2()
-    private val computedTransform: Matrix4? = Matrix4()
-    private val oldTransform: Matrix4? = Matrix4()
+    val children: SnapshotArray<Actor?> = SnapshotArray(true, 4, Actor::class.java)
+    private val worldTransform: Affine2 = Affine2()
+    private val computedTransform: Matrix4 = Matrix4()
+    private val oldTransform: Matrix4 = Matrix4()
 
     /**
      * When true (the default), the Batch is transformed so children are drawn in their parent's coordinate system. This has a
