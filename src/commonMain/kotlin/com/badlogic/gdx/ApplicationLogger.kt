@@ -15,8 +15,6 @@
  */
 package com.badlogic.gdx
 
-import com.badlogic.gdx.Files.FileType
-
 /**
  * The ApplicationLogger provides an interface for a LibGDX Application to log messages and exceptions.
  * A default implementations is provided for each backend, custom implementations can be provided and set using
@@ -25,20 +23,20 @@ import com.badlogic.gdx.Files.FileType
 interface ApplicationLogger {
 
     /** Logs a message with a tag  */
-    fun log(tag: String?, message: String?)
+    fun log(tag: String, message: String)
 
     /** Logs a message and exception with a tag  */
-    fun log(tag: String?, message: String?, exception: Throwable?)
+    fun log(tag: String, message: String, exception: Throwable)
 
     /** Logs an error message with a tag  */
-    fun error(tag: String?, message: String?)
+    fun error(tag: String, message: String)
 
     /** Logs an error message and exception with a tag  */
-    fun error(tag: String?, message: String?, exception: Throwable?)
+    fun error(tag: String, message: String, exception: Throwable)
 
     /** Logs a debug message with a tag  */
-    fun debug(tag: String?, message: String?)
+    fun debug(tag: String, message: String)
 
     /** Logs a debug message and exception with a tag  */
-    fun debug(tag: String?, message: String?, exception: Throwable?)
+    fun debug(tag: String, message: String, exception: Throwable)
 }

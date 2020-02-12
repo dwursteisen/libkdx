@@ -15,6 +15,9 @@
  */
 package com.badlogic.gdx.utils
 
+import kotlin.math.max
+import kotlin.reflect.KClass
+
 /**
  * An array that allows modification during iteration. Guarantees that array entries provided by [.begin] between indexes
  * 0 and [.size] at the time begin was called will not be modified until [.end] is called. If modification of the
@@ -43,18 +46,18 @@ package com.badlogic.gdx.utils
  */
 class SnapshotArray<T> : Array<T> {
 
-    private var snapshot: Array<T?>?
-    private var recycled: Array<T?>?
+    lateinit var snapshot: Array<T?>
+    lateinit var recycled: Array<T?>
     private var snapshots = 0
 
     constructor() : super() {}
-    constructor(array: Array?) : super(array) {}
+    constructor(array: Array) : super(array) {}
     constructor(ordered: Boolean, capacity: Int, arrayType: java.lang.Class?) : super(ordered, capacity, arrayType) {}
     constructor(ordered: Boolean, capacity: Int) : super(ordered, capacity) {}
-    constructor(ordered: Boolean, array: Array<T>?, startIndex: Int, count: Int) : super(ordered, array, startIndex, count) {}
-    constructor(arrayType: java.lang.Class?) : super(arrayType) {}
+    constructor(ordered: Boolean, array: Array<T>, startIndex: Int, count: Int) : super(ordered, array, startIndex, count) {}
+    constructor(arrayType: KClass<*>) : super(arrayType) {}
     constructor(capacity: Int) : super(capacity) {}
-    constructor(array: Array<T>?) : super(array) {}
+    constructor(array: Array<T>) : super(array) {}
 
     /**
      * Returns the backing array, which is guaranteed to not be modified before [.end].

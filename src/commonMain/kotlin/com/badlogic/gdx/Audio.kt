@@ -15,7 +15,6 @@
  */
 package com.badlogic.gdx
 
-import com.badlogic.gdx.Files.FileType
 import com.badlogic.gdx.audio.AudioDevice
 import com.badlogic.gdx.audio.AudioRecorder
 import com.badlogic.gdx.audio.Music
@@ -51,7 +50,7 @@ interface Audio {
      *
      * @throws GdxRuntimeException in case the device could not be created
      */
-    fun newAudioDevice(samplingRate: Int, isMono: Boolean): AudioDevice?
+    fun newAudioDevice(samplingRate: Int, isMono: Boolean): AudioDevice
 
     /** Creates a new [AudioRecorder]. The AudioRecorder has to be disposed after it is no longer used.
      *
@@ -61,7 +60,7 @@ interface Audio {
      *
      * @throws GdxRuntimeException in case the recorder could not be created
      */
-    fun newAudioRecorder(samplingRate: Int, isMono: Boolean): AudioRecorder?
+    fun newAudioRecorder(samplingRate: Int, isMono: Boolean): AudioRecorder
 
     /**
      *
@@ -84,7 +83,7 @@ interface Audio {
      * @return the new Sound
      * @throws GdxRuntimeException in case the sound could not be loaded
      */
-    fun newSound(fileHandle: FileHandle?): Sound?
+    fun newSound(fileHandle: FileHandle): Sound
 
     /** Creates a new [Music] instance which is used to play back a music stream from a file. Currently supported formats are
      * WAV, MP3 and OGG. The Music instance has to be disposed if it is no longer used via the [Music.dispose] method.
@@ -95,5 +94,5 @@ interface Audio {
      * @return the new Music or null if the Music could not be loaded
      * @throws GdxRuntimeException in case the music could not be loaded
      */
-    fun newMusic(file: FileHandle?): Music?
+    fun newMusic(file: FileHandle): Music
 }

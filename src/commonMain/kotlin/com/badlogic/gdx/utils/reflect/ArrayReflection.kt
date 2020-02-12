@@ -15,16 +15,7 @@
  */
 package com.badlogic.gdx.utils.reflect
 
-import java.lang.ClassNotFoundException
-import java.lang.IllegalAccessException
-import java.lang.InstantiationException
-import java.lang.NoSuchFieldException
-import java.lang.NoSuchMethodException
-import java.lang.SecurityException
-import java.lang.reflect.GenericArrayType
-import java.lang.reflect.InvocationTargetException
 import kotlin.jvm.JvmStatic
-import kotlin.jvm.Throws
 
 /** Utilities for Array reflection.
  * @author nexsoftware
@@ -33,25 +24,25 @@ object ArrayReflection {
 
     /** Creates a new array with the specified component type and length.  */
     @JvmStatic
-    fun newInstance(c: java.lang.Class?, size: Int): Any {
-        return java.lang.reflect.Array.newInstance(c, size)
+    inline fun <reified T> newInstance(c: Any, size: Int): Array<T?> {
+        return Array(size) { null }
     }
 
     /** Returns the length of the supplied array.  */
     @JvmStatic
-    fun getLength(array: Any?): Int {
-        return java.lang.reflect.Array.getLength(array)
+    fun getLength(array: Array<*>): Int {
+        return array.size
     }
 
     /** Returns the value of the indexed component in the supplied array.  */
     @JvmStatic
-    operator fun get(array: Any?, index: Int): Any {
-        return java.lang.reflect.Array.get(array, index)
+    operator fun get(array: Array<*>, index: Int): Any? {
+        return array[index]
     }
 
     /** Sets the value of the indexed component in the supplied array to the supplied value.  */
     @JvmStatic
-    operator fun set(array: Any?, index: Int, value: Any?) {
-        java.lang.reflect.Array.set(array, index, value)
+    inline operator fun <reified T> set(array: Array<T?>, index: Int, value: T?) {
+        array[index] = value
     }
 }

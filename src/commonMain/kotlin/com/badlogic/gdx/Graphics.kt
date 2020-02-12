@@ -63,7 +63,8 @@ interface Graphics {
         /** the refresh rate in Hertz  */
         val refreshRate: Int,
         /** the number of bits per pixel, may exclude alpha  */
-        val bitsPerPixel: Int) {
+        val bitsPerPixel: Int
+    ) {
 
         override fun toString(): String {
             return width.toString() + "x" + height + ", bpp: " + bitsPerPixel + ", hz: " + refreshRate
@@ -83,11 +84,11 @@ interface Graphics {
         /** number of samples for multi-sample anti-aliasing (MSAA)  */
         val samples: Int,
         /** whether coverage sampling anti-aliasing is used. in that case you have to clear the coverage buffer as well!  */
-        val coverageSampling: Boolean) {
+        val coverageSampling: Boolean
+    ) {
 
         override fun toString(): String {
-            return ("r: " + r + ", g: " + g + ", b: " + b + ", a: " + a + ", depth: " + depth + ", stencil: " + stencil
-                + ", num samples: " + samples + ", coverage sampling: " + coverageSampling)
+            return "r: $r, g: $g, b: $b, a: $a, depth: $depth, stencil: $stencil, num samples: $samples, coverage sampling: $coverageSampling"
         }
     }
 
@@ -101,14 +102,14 @@ interface Graphics {
 
     /** @return the [GL20] instance
      */
-    fun getGL20(): GL20?
+    fun getGL20(): GL20
 
     /** @return the [GL30] instance or null if not supported
      */
     fun getGL30(): GL30?
 
     /** Set the GL20 instance  */
-    fun setGL20(gl20: GL20?)
+    fun setGL20(gl20: GL20)
 
     /** Set the GL30 instance  */
     fun setGL30(gl30: GL30?)
@@ -151,11 +152,11 @@ interface Graphics {
 
     /** @return the [GraphicsType] of this Graphics instance
      */
-    val type: GraphicsType?
+    val type: GraphicsType
 
     /** @return the [GLVersion] of this Graphics instance
      */
-    val gLVersion: GLVersion?
+    val gLVersion: GLVersion
 
     /** @return the pixels per inch on the x-axis
      */
@@ -189,38 +190,38 @@ interface Graphics {
 
     /** @return the primary monitor
      */
-    val primaryMonitor: Monitor?
+    val primaryMonitor: Monitor
 
     /** @return the monitor the application's window is located on
      */
-    val monitor: Monitor?
+    val monitor: Monitor
 
     /** @return the currently connected [Monitor]s
      */
-    val monitors: Array<Monitor?>?
+    val monitors: Array<Monitor>
 
     /** @return the supported fullscreen [DisplayMode](s) of the monitor the window is on
      */
-    val displayModes: Array<DisplayMode?>?
+    val displayModes: Array<DisplayMode>
 
     /** @return the supported fullscreen [DisplayMode]s of the given [Monitor]
      */
-    fun getDisplayModes(monitor: Monitor?): Array<DisplayMode?>?
+    fun getDisplayModes(monitor: Monitor): Array<DisplayMode>
 
     /** @return the current [DisplayMode] of the monitor the window is on.
      */
-    val displayMode: DisplayMode?
+    val displayMode: DisplayMode
 
     /** @return the current [DisplayMode] of the given [Monitor]
      */
-    fun getDisplayMode(monitor: Monitor?): DisplayMode?
+    fun getDisplayMode(monitor: Monitor): DisplayMode
 
     /** Sets the window to full-screen mode.
      *
      * @param displayMode the display mode.
      * @return whether the operation succeeded.
      */
-    fun setFullscreenMode(displayMode: DisplayMode?): Boolean
+    fun setFullscreenMode(displayMode: DisplayMode): Boolean
 
     /** Sets the window to windowed mode.
      *
@@ -234,7 +235,7 @@ interface Graphics {
      *
      * @param title the title.
      */
-    fun setTitle(title: String?)
+    fun setTitle(title: String)
 
     /** Sets the window decoration as enabled or disabled. On Android, this will enable/disable
      * the menu bar.
@@ -269,12 +270,12 @@ interface Graphics {
 
     /** @return the format of the color, depth and stencil buffer in a [BufferFormat] instance
      */
-    val bufferFormat: BufferFormat?
+    val bufferFormat: BufferFormat
 
     /** @param extension the extension name
      * @return whether the extension is supported
      */
-    fun supportsExtension(extension: String?): Boolean
+    fun supportsExtension(extension: String): Boolean
 
     /** @return whether rendering is continuous.
      */
@@ -312,7 +313,7 @@ interface Graphics {
      * @param yHotspot the y location of the hotspot pixel within the cursor image (origin top-left corner)
      * @return a cursor object that can be used by calling [.setCursor] or null if not supported
      */
-    fun newCursor(pixmap: Pixmap?, xHotspot: Int, yHotspot: Int): Cursor?
+    fun newCursor(pixmap: Pixmap, xHotspot: Int, yHotspot: Int): Cursor?
 
     /** Only viable on the lwjgl-backend and on the gwt-backend. Browsers that support cursor:url() and support the png format (the
      * pixmap is converted to a data-url of type image/png) should also support custom cursors. Will set the mouse cursor image to
@@ -320,10 +321,10 @@ interface Graphics {
      *
      * @param cursor the mouse cursor as a [com.badlogic.gdx.graphics.Cursor]
      */
-    fun setCursor(cursor: Cursor?)
+    fun setCursor(cursor: Cursor)
 
     /**
      * Sets one of the predefined [SystemCursor]s
      */
-    fun setSystemCursor(systemCursor: SystemCursor?)
+    fun setSystemCursor(systemCursor: SystemCursor)
 }

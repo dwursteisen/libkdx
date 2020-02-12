@@ -15,46 +15,35 @@
  */
 package com.badlogic.gdx
 
-import com.badlogic.gdx.Graphics.BufferFormat
-import com.badlogic.gdx.Graphics.GraphicsType
-import com.badlogic.gdx.Input.Peripheral
-import com.badlogic.gdx.Input.TextInputListener
-import com.badlogic.gdx.utils.IntArray
+import com.badlogic.gdx.utils.IntArray as GdxIntArray
 import com.badlogic.gdx.utils.TimeUtils
-
+import kotlin.jvm.Synchronized
 
 /** Queues events that are later passed to the wrapped [InputProcessor].
  * @author Nathan Sweet
  */
-class InputEventQueue : InputProcessor {
+class InputEventQueue(var processor: InputProcessor? = null) : InputProcessor {
 
-    var processor: InputProcessor? = null
-    private val queue: IntArray? = IntArray()
-    private val processingQueue: IntArray? = IntArray()
-    var currentEventTime: Long = 0
-        private set
+    private val queue: GdxIntArray = GdxIntArray()
+    private val processingQueue: GdxIntArray = GdxIntArray()
 
-    constructor() {}
-    constructor(processor: InputProcessor?) {
-        this.processor = processor
-    }
+    private var currentEventTime: Long = 0
 
     fun drain() {
-        synchronized(this) {
-            if (processor == null) {
-                queue.clear()
-                return
-            }
-            processingQueue.addAll(queue)
+        if (processor == null) {
             queue.clear()
+            return
         }
+        processingQueue.addAll(queue)
+        queue.clear()
+
         val q: IntArray = processingQueue.items
         val localProcessor = processor
         var i = 0
-        val n = processingQueue!!.size
+        val n = processingQueue.size
         while (i < n) {
             val type = q[i++]
-            currentEventTime = q[i++].toLong() shl 32 or q[i++] and 0xFFFFFFFFL
+            currentEventTime = q[i++].toLong() shl 32 or q[i++].toLong() and 0xFFFFFFFFL
             when (type) {
                 SKIP -> i += q[i]
                 KEY_DOWN -> localProcessor!!.keyDown(q[i++])
@@ -122,7 +111,7 @@ class InputEventQueue : InputProcessor {
     override fun keyTyped(character: Char): Boolean {
         queue.add(KEY_TYPED)
         queueTime()
-        queue.add(character)
+        queue.add(character.toInt())
         return false
     }
 

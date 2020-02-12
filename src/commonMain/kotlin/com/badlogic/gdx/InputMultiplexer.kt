@@ -28,14 +28,9 @@ import com.badlogic.gdx.utils.SnapshotArray
  * processor returns true, which indicates that the event was handled.
  * @author Nathan Sweet
  */
-class InputMultiplexer : InputProcessor {
+class InputMultiplexer(vararg processors: InputProcessor) : InputProcessor {
 
-    private val processors: SnapshotArray<InputProcessor?> = SnapshotArray(4)
-
-    constructor() {}
-    constructor(vararg processors: InputProcessor?) {
-        this.processors.addAll(processors)
-    }
+    private val processors: SnapshotArray<InputProcessor> = SnapshotArray(4)
 
     fun addProcessor(index: Int, processor: InputProcessor?) {
         if (processor == null) throw NullPointerException("processor cannot be null")

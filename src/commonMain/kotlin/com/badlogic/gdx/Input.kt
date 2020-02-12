@@ -577,7 +577,7 @@ interface Input {
      * @param title The title of the text input dialog.
      * @param text The message presented to the user.
      */
-    fun getTextInput(listener: TextInputListener?, title: String?, text: String?, hint: String?)
+    fun getTextInput(listener: TextInputListener, title: String, text: String, hint: String?)
 
     /** Sets the on-screen keyboard visible if available.
      *
@@ -598,7 +598,7 @@ interface Input {
      * @param pattern an array of longs of times to turn the vibrator on or off.
      * @param repeat the index into pattern at which to repeat, or -1 if you don't want to repeat.
      */
-    fun vibrate(pattern: LongArray?, repeat: Int)
+    fun vibrate(pattern: LongArray, repeat: Int)
 
     /** Stops the vibrator  */
     fun cancelVibrate()
@@ -629,7 +629,7 @@ interface Input {
      * does not have an accelerometer.
      * @param matrix
      */
-    fun getRotationMatrix(matrix: FloatArray?)
+    fun getRotationMatrix(matrix: FloatArray)
 
     /** @return the time of the event currently reported to the [InputProcessor].
      */
@@ -700,7 +700,7 @@ interface Input {
      * @param peripheral the [Peripheral]
      * @return whether the peripheral is available or not.
      */
-    fun isPeripheralAvailable(peripheral: Peripheral?): Boolean
+    fun isPeripheralAvailable(peripheral: Peripheral): Boolean
 
     /** @return the rotation of the device with respect to its native orientation.
      */
@@ -708,7 +708,7 @@ interface Input {
 
     /** @return the native orientation of the device.
      */
-    val nativeOrientation: Orientation?
+    val nativeOrientation: Orientation
 
     enum class Orientation {
         Landscape, Portrait

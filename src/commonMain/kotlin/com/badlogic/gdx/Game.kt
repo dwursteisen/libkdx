@@ -27,25 +27,28 @@ package com.badlogic.gdx
  *   */
 abstract class Game : ApplicationListener {
 
-    protected var screen: Screen? = null
+    /** @return the currently active [Screen].
+     */
+    var screen: Screen? = null
+
     override fun dispose() {
-        if (screen != null) screen!!.hide()
+        screen?.run { hide() }
     }
 
     override fun pause() {
-        if (screen != null) screen!!.pause()
+        screen?.run { pause() }
     }
 
     override fun resume() {
-        if (screen != null) screen!!.resume()
+        screen?.run { resume() }
     }
 
     override fun render() {
-        if (screen != null) screen!!.render(Gdx.graphics.deltaTime)
+        screen?.run { render(Gdx.graphics.deltaTime) }
     }
 
     override fun resize(width: Int, height: Int) {
-        if (screen != null) screen!!.resize(width, height)
+        screen?.run { resize(width, height) }
     }
 
     /** Sets the current screen. [Screen.hide] is called on any old screen, and [Screen.show] is called on the new
@@ -53,17 +56,11 @@ abstract class Game : ApplicationListener {
      * @param screen may be `null`
      */
     fun setScreen(screen: Screen?) {
-        if (this.screen != null) this.screen!!.hide()
+        screen?.run { hide() }
         this.screen = screen
-        if (this.screen != null) {
-            this.screen!!.show()
-            this.screen!!.resize(Gdx.graphics.width, Gdx.graphics.height)
+        screen?.run {
+            show()
+            resize(Gdx.graphics.width, Gdx.graphics.height)
         }
-    }
-
-    /** @return the currently active [Screen].
-     */
-    fun getScreen(): Screen? {
-        return screen
     }
 }
